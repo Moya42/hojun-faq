@@ -327,7 +327,14 @@
   .qa-meta{display:flex;align-items:center;justify-content:space-between;
     margin-top:12px;padding-top:10px;border-top:1px solid var(--border);}
   .qa-dt{font-size:11px;color:var(--text3);}
-  .qa-ac{display:flex;gap:6px;}
+  /* 管理者UI — body.admin-mode クラスで一括制御 */
+  #adminBadge, #saveBtn, #importBtn { display: none; }
+  body.admin-mode #adminBadge,
+  body.admin-mode #saveBtn,
+  body.admin-mode #importBtn { display: inline-block; }
+  body.admin-mode #fab { display: flex; }
+  .qa-ac { display: none; }
+  body.admin-mode .qa-ac { display: flex; gap: 6px; }
   .smbtn{border:1px solid var(--border);background:var(--surface2);border-radius:5px;
     padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit;color:var(--text2);
     transition:var(--tr);display:inline-flex;align-items:center;gap:4px;}
@@ -1070,33 +1077,21 @@ function storePw(v) { localStorage.setItem(PW_KEY, btoa(v)); }
 let isAdmin = false;
 let loginCb = null;
 
-function setAdmin(val) {
+function setAdminMode(val) {
   isAdmin = val;
-  const badge = document.getElementById('adminBadge');
-  const saveB = document.getElementById('saveBtn');
-  const impB  = document.getElementById('importBtn');
-  const fab   = document.getElementById('fab');
-  const lBtn  = document.getElementById('loginBtn');
-  if (val) {
-    badge.style.display = 'inline-block';
-    saveB.style.display = 'inline-block';
-    impB.style.display  = 'inline-block';
-    fab.style.display   = 'flex';
-    lBtn.textContent    = '🔓 ログアウト';
-    lBtn.classList.add('logout-btn');
-  } else {
-    badge.style.display = 'none';
-    saveB.style.display = 'none';
-    impB.style.display  = 'none';
-    fab.style.display   = 'none';
-    lBtn.textContent    = '🔐 ログイン';
-    lBtn.classList.remove('logout-btn');
-  }
+  document.body.classList.toggle('admin-mode', val);
+  // 旧コードで焼き付いたインラインstyleを除去し、CSSに委ねる
+  ['adminBadge','saveBtn','importBtn','fab'].forEach(function(id) {
+    document.getElementById(id).style.display = '';
+  });
+  var lBtn = document.getElementById('loginBtn');
+  lBtn.textContent = val ? '🔓 ログアウト' : '🔐 ログイン';
+  lBtn.classList.toggle('logout-btn', val);
   render();
 }
 
 function handleLoginBtn() {
-  if (isAdmin) { if(confirm('ログアウトしますか？')) setAdmin(false); }
+  if (isAdmin) { if(confirm('ログアウトしますか？')) setAdminMode(false); }
   else openLogin();
 }
 
@@ -1112,7 +1107,7 @@ function closeLogin() { document.getElementById('loginCov').classList.remove('sh
 function doLogin() {
   const pw = document.getElementById('loginPw').value;
   if (checkPw(pw)) {
-    setAdmin(true); closeLogin();
+    setAdminMode(true); closeLogin();
     if (loginCb) { loginCb(); loginCb = null; }
   } else {
     document.getElementById('loginErr').style.display = 'block';
@@ -1189,8 +1184,8 @@ function render() {
   list.innerHTML = data.map(d => {
     const qT = q ? hl(esc(d.question),q) : esc(d.question);
     const aT = q ? hl(esc(d.answer),q)   : esc(d.answer);
-    const eb = isAdmin ? `<button class="smbtn" onclick="openEdit('${d.id}')">✏️ 編集</button>` : '';
-    const db = isAdmin ? `<button class="smbtn del" onclick="doDel('${d.id}')">🗑️ 削除</button>` : '';
+    const eb = `<button class="smbtn" onclick="openEdit('${d.id}')">✏️ 編集</button>`;
+    const db = `<button class="smbtn del" onclick="doDel('${d.id}')">🗑️ 削除</button>`;
     return `<div class="qa" id="c${d.id}">
       <div class="qa-h" onclick="tog('${d.id}')">
         <span class="qa-cb cat-${d.category}">${EMOJI[d.category]} ${d.category}</span>
@@ -1280,11 +1275,13 @@ function flashSaveHint() {
 // ══════════════════════════════════════
 function saveAndExport() {
   needAdmin(()=>{
-    // faq-data タグの内容を現在のデータで更新してからouterHTMLを取得
     document.getElementById('faq-data').textContent =
       '\n' + JSON.stringify(allData, null, 2) + '\n';
 
+    setAdminMode(false);
     const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    setAdminMode(true);
+
     const blob = new Blob([html], {type:'text/html;charset=utf-8'});
     const a    = document.createElement('a');
     a.href     = URL.createObjectURL(blob);
@@ -1292,7 +1289,6 @@ function saveAndExport() {
     a.click();
     URL.revokeObjectURL(a.href);
 
-    // トースト表示
     const t = document.getElementById('toast');
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'), 4000);
@@ -1327,8 +1323,8 @@ function doImport() {
   alert(`${added}件を取り込みました。\n「💾 保存して出力」を押してファイルを更新してください。`);
 }
 
-// ── INIT ──
-render();
+// ── INIT ── 必ずログアウト状態で起動（焼き付きインラインstyleも除去）
+setAdminMode(false);
 
 // タブをヘッダーの直下にstickyさせる
 (function() {
