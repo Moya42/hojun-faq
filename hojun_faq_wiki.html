@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>株式会社ホージュン 社内FAQ Wiki</title>
+
+<!-- ═══════════════════════════════════════
+     FAQ データ（ここを直接編集しないこと）
+     管理者ログイン後「保存して出力」で更新してください
+════════════════════════════════════════ -->
+<script type="application/json" id="faq-data">
+[
+  {
+    "id": "aa001",
+    "category": "土木",
+    "date": "",
+    "question": "VGメーターから得られるデータ（AV・PV・YV・GS）について教えてください。",
+    "answer": "VGメーターで得られる主なデータは以下の4種類です。\n\n■ AV（Apparent Viscosity：見掛け粘度）\nVGメーターは回転数がせん断速度を、ダイヤルの読み値がせん断力を示しており、本試験結果は600rpmでの見掛け粘度となります。\n計算式：μ（mPa・s）= 300 × F / R\n　R＝回転数、F＝回転数Rにおけるダイヤルの読み値（lb/100ft²）、300＝単位変換常数\n\n■ PV（Plastic Viscosity：塑性粘度）\n泥水中に含まれている固体粒子間の機械的摩擦、固体粒子と液相との間の機械的摩擦、並びに液相自体のせん断によって生じる流動抵抗。\n計算式：PV = 600rpm読み値 − 300rpm読み値\n\n■ YV（Yield Value：降伏値）\n流体が流動状態にあるとき流動を続けるのに必要なせん断力の測定値で、泥水中の粘土粒子間のけん引力によって生じる流動抵抗。\n計算式：YV（lb/100ft²）= 300rpm読み値 − PV\n\n■ GS（Gel Strength：ゲル強度）\n泥水が静置状態から流動を始めるために必要なせん断力の測定値。\n測定方法：600rpmにて10秒間回転させた後、10秒または10分経過後に3rpmで回転させ、ダイヤルの針が最大となったところを読む。"
+  },
+  {
+    "id": "aa002",
+    "category": "土木",
+    "date": "",
+    "question": "泥水の凝集劣化のメカニズムと、炭酸カルシウム安定液で凝集反応が少ない理由を教えてください。",
+    "answer": "■ 凝集劣化の原理\nベントナイトの主成分モンモリロナイトは板状結晶で、結晶表面が負電荷（−）を帯びており、Na⁺・K⁺・Ca²⁺・Mg²⁺等が層間陽イオンとして存在しています。泥水中にCa²⁺等の外部陽イオンが混入すると、結晶層間に入り込んで凝集反応を示します。\n\n■ 炭酸カルシウムの影響による一例\n炭カルに比べ、トチクレーではCa2+やMg2+といった2価のカチオンが多く検出されたということでモンモリロナイトの結晶層間にそれらが入り込むことで凝集反応を示したため、前述の泥水性状の差異を示したのではないかという結論に至りました。\n今回はCa2+やMg2+といったカチオンを測定し、その結果による考察となっておりますが、モンモリロナイトはカチオン、アニオン両方の影響を受け凝集いたしますので、Ca2+やMg2+などと共に存在するカウンターイオンの影響も受けて凝集しているということになります。\n\n■ 基本的な考え方\n・濾水量 ＝ ベントナイト添加量の大小\n・粘性　 ＝ イオン性成分の大小\n※ベントナイトをイオン性成分の影響を受けやすい銘柄に変更した場合は、同じ添加量でも濾水量に差が出る場合があります。"
+  },
+  {
+    "id": "aa003",
+    "category": "土木",
+    "date": "",
+    "question": "陰イオンが泥水の凝集に影響するメカニズムを教えてください。",
+    "answer": "陰イオンによる凝集への影響は主に2つのメカニズムから説明されます。\n\n■ メカニズム①：イオン種による直接反応\n・陽イオン → 結晶表面（負電荷）との静電反応\n・陰イオン → 層間陽イオンとの静電相互作用（クーロン力）\nこの両方の反応が凝集要因の一つとなります。\n\n■ メカニズム②：電気二重層の減少\nベントナイト分散粒子はコロイドとして働くため、電解質（イオン性成分）の増加とともに電気二重層（粒子間の反発距離の指標）が減少します。その結果、粒子同士が接近し、ファンデルワールス力の増大によって凝集が生じます。\n\nつまり、陽イオン・陰イオンを問わず電解質濃度全体の上昇が凝集を促進します。"
+  },
+  {
+    "id": "aa004",
+    "category": "土木",
+    "date": "",
+    "question": "ゲル化した泥水で濾水量が全量通水してしまうメカニズムを教えてください。",
+    "answer": "健全な泥水では、モンモリロナイトの結晶が一枚一枚バラバラに分散（コロイド状態）しており、加圧時にフィルター面で整然と配向した泥膜を形成して止水します。\n\nゲル化が起きた場合の流れは以下の通りです。\n①泥水中にCa²⁺等が混入すると、モンモリロナイト結晶層間にイオンが入り込み凝集反応（ゲル化）が生じる。\n②層間に拘束していた水が吐き出され、結晶同士の距離が縮まる。\n③凝集した粒子は「大きな塊（フロック）」となり、フィルター面で均一な泥膜を形成できなくなる。\n④目詰まりが起きず、水が通過してしまう → 濾水量増大。\n\n※凝集は陽イオンだけでなく、陰イオン（層間イオンとのクーロン力）や電解質濃度増加によるファンデルワールス力の増大によっても生じます。"
+  },
+  {
+    "id": "aa005",
+    "category": "土木",
+    "date": "",
+    "question": "消石灰（Ca(OH)₂）は安定液をゲル化させますか？Ca化合物は全てゲル化の原因になりますか？",
+    "answer": "消石灰は安定液をゲル化させる成分です。試験中に消石灰を安定液に混入したところ、実際にゲル化することを確認しています。\n\n消石灰の溶解度は約1.55 g/L（20℃）であり、ある程度水に溶けてカルシウムイオンを供給し、ベントナイトと反応してゲル化します。\n\nCa化合物全般については、溶解してCa²⁺を供給するものであればゲル化の原因となります。ただし、溶解度が極めて低い化合物はCa²⁺の供給量が少ないため影響は限定的です。実際の挙動は溶解度とイオン溶出量に依存します。"
+  },
+  {
+    "id": "aa006",
+    "category": "土木",
+    "date": "",
+    "question": "ベントナイト・マジカルクレー(炭カル)・トチクレー・掘削地盤はいずれもゲル化の対象になりますか？",
+    "answer": "ゲル化はベントナイト（主成分：モンモリロナイト）がイオン性成分と反応することで発生する現象です。\n\n各材料の位置づけは以下の通りです。\n・ベントナイト：ゲル化の主体。モンモリロナイト含有量が多いほど影響が大きい。\n・マジカルクレー・トチクレー：少なからずイオン性成分を含む。溶出量がある程度であればゲル化には至らないが、溶出量が多くなるとゲル化する。\n・掘削した地盤：地盤中のイオン性成分（Ca²⁺・Mg²⁺等）が溶出し、泥水の凝集劣化を引き起こす可能性がある。\n\n共通の考え方：イオン性成分の溶出量が閾値を超えるとゲル化が進行します。"
+  },
+  {
+    "id": "aa007",
+    "category": "土木",
+    "date": "",
+    "question": "生石灰パイル一般量混入の比重が安定液単体とあまり変わらないのはなぜですか？",
+    "answer": "生石灰パイル一般量混入の比重計測は、2mmのふるいにかけて篩を通過した試料のみで実施しているため、2mm以上の掘削対象土が除外された分、比重が小さくなっています。\n\n混入試料すべてを考慮した理論比重の算出結果は以下の通りです。\n\n　安定液単体：比重 1.22（体積 1000 mL、質量 1217 g）\n　掘削対象土：比重 1.695（体積 15.4 mL、質量 261.03 g）\n　生石灰パイル：比重 1.589（体積 0.6 mL、質量 9.53 g）\n　合計（理論比重）：1.464\n\nつまり、篩処理による粗粒分の除外が計測値を低く見せている要因です。"
+  },
+  {
+    "id": "aa008",
+    "category": "土木",
+    "date": "",
+    "question": "ろ水量・ケーキ厚が練り混ぜ直後より1日経過後の方が小さくなるのはなぜですか？",
+    "answer": "ベントナイトは水中で時間の経過とともに膨潤が進み、撹拌することで結晶一枚一枚がバラバラになり分散した状態となります。\n\n■ 1日経過後の方が値が小さい理由\n・膨潤が十分進んだ泥水を加圧すると、結晶が一枚一枚きれいに配向した泥膜が即時的に形成される → 濾水量が少ない。\n・撹拌直後（未分散が多い状態）では、結晶がある程度まとまった状態で多く存在するため、きれいに配向した泥膜が形成されにくく、濾水量が比較的多くなる。\n\n■ ケーキ厚との関係\n濾水が多く出ている状態では軟弱な泥膜が形成され続けるため、結果的にケーキも厚くなります。逆に濾水量が少ない（泥膜が良好）状態ではケーキも薄く抑えられます。"
+  },
+  {
+    "id": "aa009",
+    "category": "土木",
+    "date": "",
+    "question": "生石灰パイルが安定液に混入した際のゲル化は、アルカリ環境によるものですか？それともCa²⁺との反応によるものですか？",
+    "answer": "主にpHに関係なく、ベントナイトとカルシウムイオン（Ca²⁺）が反応することによる現象です。\n\n■ Ca²⁺によるゲル化\n電気二重層の減少とカードハウス構造のより強固な形成が主な要因です。\n\n■ 酸性環境下のゲル化\n酸性環境では水素イオン濃度が高くなることにより結晶端面のプラス電荷が強化されるため、強固なカードハウス構造が形成されゲル化要因となります。\n\n■ アルカリ環境について\n生石灰パイル混入によるゲル化はアルカリ環境下が主因ではなく、あくまでCa²⁺の溶出・反応が主体です。ゲル化の原因をアルカリ環境によるものとCa²⁺反応によるものに分けて考えることは可能ですが、現実の現象では両者が複合的に作用しています。"
+  },
+  {
+    "id": "aa010",
+    "category": "土木",
+    "date": "",
+    "question": "ベントナイト泥水への分散剤添加の効果を教えてください。",
+    "answer": "分散剤を添加すると、無添加の泥水に比べて粘性が低下します。\n\n■ メカニズム\nベントナイト単体では、粒子の面（負電荷）とエッジ（正電荷）が静電引力で引き合い、電気的なネットワーク（カードハウス構造）を形成して増粘します。\n\n分散剤を添加すると、分散剤の陰イオン成分がエッジの正電荷を中和し、粒子全体が負電荷に偏ります。その結果、粒子間に反発力が生じてネットワーク構造が解け、粘性が低下します。\n\n■ 実用上の効果\n・高濃度配合でも流動性を確保できる。\n・送泥・循環ポンプへの負荷を低減できる。\n・ただし過剰添加は泥膜性能（止水性）に影響する場合があるため、適正量の管理が重要です。"
+  },
+  {
+    "id": "aa011",
+    "category": "土木",
+    "date": "",
+    "question": "同配合で撹拌1時間後の方が直後よりケーキ厚が薄い結果が出ました。粘度が高い方がケーキが厚くなるイメージがありますが、正しいですか？",
+    "answer": "基本的に時間の経過によるケーキ厚の変化は軽微です。粘性とケーキ厚の直接的な対応関係については、混入物の有無によって異なります。\n\n■ ケーキが厚くなる主な要因\n① 泥水濃度を上げた場合：粘性増大・ケーキ厚増大・ろ水量減少\n② 泥水に海水やセメント等が混入した場合：粘性低下・ケーキ厚増大・ろ水量増大\n\n■ 時間経過の場合（今回のケース）\nろ水量については、ベントナイト（モンモリロナイト）が膨潤・分散するので時間の経過とともに少なくなります。それに伴いケーキも薄くなる傾向があります。\n\nつまり「粘性が高い＝ケーキが厚い」は外部からの汚染物質が加わった場合のパターンであり、ベントナイト自体の膨潤・分散が進む時間変化では逆の傾向（ケーキが薄くなる）が見られることがあります。"
+  },
+  {
+    "id": "aa012",
+    "category": "土木",
+    "date": "",
+    "question": "ろ水量が多いとケーキ厚が厚くなる傾向があります。これは品質の悪い泥水という理解でよいですか？",
+    "answer": "粘土泥水の場合、ベントナイト単体ではなく粘土も込みの濃度であるため、ろ水量が少なくなるとは限りません。ベントナイト銘柄の違いで差が出るという見方が適切です。\n\nベントナイトは銘柄によって性状が異なり、同濃度であってもろ水量は一致しません。例えばTB-250のような低粘性品はろ水量も多くなります。\n\n■ 改善策\nベントナイトと粘土の配合比を変更するだけで、比重を変えずにろ水量・ケーキ厚を改善できます。\n・ベントナイトを増やし、粘土を減らす → ろ水量の減少と泥膜形成の改善。\n・良質な泥膜が形成できれば、ケーキも薄くなります。\n\n■ 品質評価の考え方\n「ろ水量が多い＝品質が悪い」という極端な断定よりも、配合・銘柄・運用条件を総合的に評価することが重要です。"
+  },
+  {
+    "id": "aa013",
+    "category": "土木",
+    "date": "",
+    "question": "活性化ベントナイト（ネオクレイ）の炭酸ナトリウム添加量を教えてください。",
+    "answer": "ネオクレイは固形分に対して3〜4%の炭酸ナトリウム（Na₂CO₃）を添加して改質しています。\n\n■ 活性化ベントナイトとは\nCa型ベントナイトに対して数wt%の炭酸ナトリウムを添加し、人工的にNa型化させたものを活性化ベントナイト（ソーダ活性化ベントナイト）と呼びます。\n\n■ 添加量が固定でない理由\n掘削箇所によって原鉱の品質が多少異なるため、物性（膨潤力・粘度等）を確認しながら炭酸ナトリウムの添加量を3〜4%の範囲で調整しています。"
+  },
+  {
+    "id": "aa014",
+    "category": "土木",
+    "date": "",
+    "question": "試験結果の単位（cPとlb/100ft²）の関係について教えてください。降伏値の計算でcPをそのまま使ってよいですか？",
+    "answer": "■ VGメーターの目盛りについて\nVGメーターの目盛り読み値＝せん断応力となります。そのため試験結果表中の600rpm・300rpmの単位はlb/100ft²です。\n\n■ 降伏値の計算式\n降伏値（lb/100ft²）＝ 300rpmの読み値 − 塑性粘度\n塑性粘度 ＝ 600rpmの読み値 − 300rpmの読み値（単位はいずれもlb/100ft²）\n\nしたがって：\n降伏値（lb/100ft²）＝ 300rpm − （600rpm − 300rpm）\n\n計算上は「塑性粘度で出てきた値をそのまま使っている」だけであり、最終的に降伏値の単位はlb/100ft²になります。\n\n■ 単位の注記\n以前（2022年頃）はcP表記を使用していましたが、現在はSI単位のmPa・sを使用しています（数値は同一：1 cP ＝ 1 mPa・s）。"
+  },
+  {
+    "id": "aa015",
+    "category": "土木",
+    "date": "",
+    "question": "スーパークレイとクニゲルV1の砂分測定で測定不可となった原因の違いを教えてください。",
+    "answer": "■ 砂分試験の方法\n泥水中の200メッシュ（74μm）の網を通すことで砂分を回収します。200メッシュはシルトと細砂の中間の粒径に相当します。\n\n■ クニゲルV1の場合\n「透明の浮遊物」については分析できていないため断定できませんが、何らかの増粘剤の類と推測されます。砂分が多く見られたため測定不可となりましたが、これは実際の砂・シルト粒子が網に溜まり通過できなくなった状態です。\n\n■ スーパークレイの場合\n濃度を上げたことで粘性が増大し、ベントナイトの未分散状態（ダマ）も多くなり、ふるいを通過できなくなったものです。撹拌条件を一定にしているため、高濃度＝高粘性になるとダマが残りやすくなります。\n\n■ 測定不可となる要因の違い\n・クニゲルV1：実際の砂・シルト粒子の目詰まり\n・スーパークレイ：粘性増大によるダマ（未分散のベントナイト）の目詰まり\n\n■ 対応策\n水希釈や撹拌強化で改善できる場合がありますが、通常の砂分試験では行わない方法であるため、前段階の粘性管理が重要です。"
+  },
+  {
+    "id": "mpqfkfzkhr3np",
+    "category": "土木",
+    "question": "赤城の浸出カチオンを測定したところ、以前いただいた結果と異なりました。なぜですか？",
+    "answer": "ベントナイトは天然鉱物であるため、浸出カチオンの測定結果にはバラつきが生じます。主な原因は以下の通りです。\n\n■Na量のバラつき\nソーダ灰（Na2CO3）の添加量は製品規格を見ながら調整していますが、毎回まったく同一の結果にはなりません。原鉱のNa含有量が時期によって異なることも影響します。\n\n■Caのバラつき\nCaは層間イオンとして存在するものだけでなく、Calcite（CaCO3）等の夾雑鉱物由来のCaも測定値に影響します。このため特にCaはバラつきが大きくなりやすいです。\n\n測定時の原鉱ロットによってCaが少ない状態・多い状態が生じることがあり、以前の結果と異なる値が出ることがあります。天然鉱物固有の性質としてご承知おきください。",
+    "date": ""
+  },
+  {
+    "id": "mpqfkfzklw1fg",
+    "category": "土木",
+    "question": "「ジオクレイ-C」のモンモリロナイト含有率はどの程度ですか？",
+    "answer": "一般工業用ベントナイトのモンモリロナイト含有率は、基本的に測定を行っておりません。\n\n■簡易測定方法について\nメチレンブルー吸着量試験（カチオン性染料をモンモリロナイト結晶表面に吸着させる試験）から凡その純度を推定する方法がありますが、この方法では正確な純度測定はできません。\n\nこの方法による参考値として、ジオクレイ-Cのモンモリロナイト含有率は約64%となります。ただしあくまでも参考値としてご参照ください。\n\n一般工業用ベントナイトのモンモリロナイト純度を正確に算出することは難しいため、精度が必要な場合はXRD等の分析方法との組み合わせをご検討ください。",
+    "date": ""
+  },
+  {
+    "id": "xl000",
+    "category": "化学",
+    "date": "2026-05-15",
+    "question": "ベンゲルSH\n御社にて登録される場合、別途デンソー様IDをご連絡いたしますのでその旨ご返信ください。\n弊社にて登録する場合、成分がわかる資料(CAS番号含む)のご提示お願いいたします。",
+    "answer": "早速ですがお問い合わせいただきましたベンゲルSHについて\n　・ベントナイト　　　　　CAS.No.1302-78-9\n　・シランカップリング剤　CAS.No.3069-19-0\nの複合物となります。"
+  },
+  {
+    "id": "xl001",
+    "category": "化学",
+    "date": "2026-05-08",
+    "question": "ベンゲルネクストSSのアレルゲン情報",
+    "answer": "精製ベントナイトは鉱物由来100%のためアレルゲンを含みません。\n※証明書は別途発送可能"
+  },
+  {
+    "id": "xl002",
+    "category": "化学",
+    "date": "2026-05-01",
+    "question": "エスベンW、WVに関する情報\n\n1.REACH\n\n2.**「Definition and Index for Natural and Organic Cosmetic Ingredients based on ISO16128」*\n\n3.PFAS statement",
+    "answer": "1.精製・有機ベントナイトともにREACHは取得していない。\n\n2.自然指数、自然由来指数は既に資料作成済み\n\n3.PFAS関連は意図的使用はありません"
+  },
+  {
+    "id": "xl003",
+    "category": "化学",
+    "date": "",
+    "question": "HSコードは",
+    "answer": "有機ベントナイト：3824.90-900(2016ごろまで)\n 　　→2018.4Ver　3824.99-090\n 　　→2022より 　3402.90.000\n\n精製ベントナイト：2508.10-000\n     →2022.12Ver 2508.10.000(変更なし)\n　  　ベンゲルSH\n  　 　　　→　　　　3824.99　(2023.11.27山田さんと相談　ソーダ灰処理品と同じ\n　　　　　　　　　　　　　　シランカップリング剤がゴムの活性処理剤として\n　　　　　　　　　　　　　　使用されていることを参考。末尾3桁は不明(末尾3桁\n　　　　　　　　　　　　　　は国ごとに違うとのこと))\n工業用ベントナイト\n　　 →2018.4ver：2508.10-000"
+  },
+  {
+    "id": "xl004",
+    "category": "化学",
+    "date": "",
+    "question": "有機ベントナイトにおける化審法とCAS.No.の相違について",
+    "answer": "【化審法】\n日本国内(経済産業省)では、有機ベントナイトは化合物とは認めず、混合物の扱いとなる。\nこれにより有機ベントナイトは、天然鉱物と、修飾剤の2つを記載する義務があります。\nしかしながら化審法において、天然物は対象外であることから、修飾剤のみの記述となるため、化審法では有機ベントナイトが修飾剤と同じ記載となります。\n\n【CAS.No.】\nCAS.No.は、アメリカで「有機ベントナイト」として登録されているため、有機ベントナイトの\nCAS.No.で記載しております。"
+  },
+  {
+    "id": "xl005",
+    "category": "化学",
+    "date": "2026-04-08",
+    "question": "・商品中に含まれる①鉄、②銅の濃度についてのデータ、情報をいただきたい。\n・（最大でもこの程度濃度という濃度数値がわかればありがたいです。）\n・もし、濃度について情報をお持ちでない場合は、商品の製造中に鉄、銅濃度が 高くなる可能性がある工程が存在するかを教えていただきたい。\n本件、商品に問題があってのお問合せではなく、岡山ワイナリーにてワイン中に 鉄、銅がどれくらい移行する可能性があるかを調査するための要請と聞いており ます。",
+    "answer": "> 商品中に含まれる①鉄、②銅の濃度についてのデータ\nは測定しておらず、実測データは持合わせておりません。\n\n参考内容とすると、食添ではない外原規ベンゲル(製造工程は同様で評価項目が異なるもの)では、「重金属　≦50ppm(Pbとして)」があります。\n「Fe」、「Cu」ではなく、重金属として上限50ppmとの回答となります。\n\n> 商品の製造中に鉄、銅濃度が高くなる可能性がある工程が存在するかを教えていただきたい。\n\n製品が接触するラインの金属系材質は全てステンレス(SUS304)としております。\nステンレスからのFe・Cu(銅は考えにくいのですが)の溶出は想定しておりませんが、お問い合わせの「鉄、銅濃度が高くなる可能性がある工程」とするとステンレス(SUS304)からの溶出量が可能性として考えられます。"
+  },
+  {
+    "id": "xl006",
+    "category": "化学",
+    "date": "2026-03-25",
+    "question": "現在、御社のベントナイトの赤城を粘土成形の補助剤として使用させていただい ております。\n\n当社では今、白い原料で製品試作を進めております。\n\nつきましては、御社のお取り扱いしている製品で粘土の補助剤として使用可能な ベントナイトで白色のものはございますか？\n\nまた、該当する製品のサンプルをいただく事は可能でしょうか？",
+    "answer": "白色度の高い製品としては\nBGB11KとBG-FW、BGN-LUになります。\nあとは価格ではないかと思います。\n\n工業用出の白色度は期待できませんが、赤城(群馬産)以外であれば\nネオクレイかスーパークレイになるかと思います。\n\n「粘土成形の補助剤」として適切かは分かりませんが、これらの中から\n用途・価格で見合うものではないかと思います。"
+  },
+  {
+    "id": "xl007",
+    "category": "化学",
+    "date": "2026-03-18",
+    "question": "【お問い合わせ内容】\n\nベントナイトで、粒径が50～100nm（湿式）くらいのものはあるでしょうか。\n\nホージュンさんのホームページでは、粒径がわからなかったとの事です。\n\nちなみに、化粧品ではないので、グレードは何でもよいです（化粧品用でも工業 用でもかまいません）。\n\n【用途】医療用模型を作成する材料の一つになります。（あくまで模型なので、 人体に使われることはありません）",
+    "answer": "問合せの件ですが、湿式で「50～100nmだけ」のものはありません。\nこのため、要求事項が「50～100nmだけ」となると、提供製品はありません。\n\nしかし、「50～100nmも含む」であれば、以下の背景からベンゲルを紹介できるかと思います。\n\n精製ベントナイトでは2μm以下の分級条件で、実際には4μm(4000nm)以下の粒子\nを回収しています。回収粒子は「以下」なので50～100nmの粒子も含みます。\n回収条件はどの製品も同じですが粘性の低い製品の方がやや小さな粒径を回収しているかもしれません(ストークス式の粘性ファクターから)。\n\nですので、ベンゲルでよいかと思いますがいかがでしょうか。"
+  },
+  {
+    "id": "xl008",
+    "category": "化学",
+    "date": "2026-03-17",
+    "question": "本件、KALIN様の顧客からS-BEN WVに関する“non-nano”および“vegan”関連の\n\n証明書・書類のご提出を依頼されました。\n\nこれらの書類のご提供にご協力いただけますでしょうか。",
+    "answer": "2024.10.25にKALIN様からひな形をいただき、添付のWordファイル(20241025_S-BEN_WV_Vegan Declaration.docx)を作成・提出しております。\n本内容でよろしければそのまま回答書として使用可能です。\n\nナノマテリアルについて\nナノマテリアルについては各国の見解があります。国内でも厚労省、経産省、環境省では解釈によって異なる事案です(古い資料ですが各国の見解についての資料をPDFにて添付いたします)。\nそれに対し、当社ではナノマテリアル規格認証委員会(産総研)に所属し、精製・有機ベントナイトを「ナノクレイ」として製品登録を行う動きもしていることから、リスク側回答書として「ナノマテリアルに相当」の回答書をもちいております。\n使用国によっては異なりますので、代理店の調査結果による希望回答書の提供も可能です。"
+  },
+  {
+    "id": "mq4l9q2jgszlo",
+    "category": "土木",
+    "question": "ベントナイトはCa型、Na型があるようですが、他イオン(例えばKイオン)にカチオンを置換できますか。\nまた、置換できた場合、膨潤性や水和エネルギーや結晶層を引き付ける力などの特性は変化すると考えられますか。",
+    "answer": "Kを含む他イオンに置換可能です。\n特性は変化しますので、層間陽イオンの種類により膨潤性が変化しております。",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "mq4lfrmgtn5xr",
+    "category": "土木",
+    "question": "ベントナイトを水に分散させた際、Kイオンを添加すると他カチオンと置換できますか？",
+    "answer": "Kイオンはモンモリロナイト結晶の6員環とサイズがほぼ同一のため安定化しやすい傾向にあります。\nこのため、陽イオン交換容量測定の最後の置換にKイオン(KCl)を用いております。",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "mq4llwuizjhhs",
+    "category": "土木",
+    "question": "MgCl2、Mg(CH3COO)2、CH3COOKなど、カチオンが同じであってもアニオンの違いでベントナイトの特性は異なるのでしょうか？",
+    "answer": "カチオンの反応場とアニオンの反応場が異なります。\n\n【カチオン交換の影響】\nイオン交換はカチオンの種類によります。\nその際のアニオン種の影響は、電離度ではないかと推測します。\n\n【アニオン種による影響】\nアニオン種として強酸種の場合には電解質としての影響が大きい傾向がありますが、弱酸種の場合には会合剤として働くことがあります。",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "mq4lxta9wpj4o",
+    "category": "土木",
+    "question": "濃度の影響について、2価のイオンと1価のイオンが存在する場合、2価のイオンの交換が抑制されるということは、例えば1価のイオンの量を調整することで特性も調整することが可能なのでしょうか？",
+    "answer": "同一濃度の場合には、多価陽イオンを優先的に取り入れます。\n濃度が変更された場合には逆も可能です。\n例として、2価のCaイオンを多く含むCa型ベントナイトへNaを供給することによりNa化を行います。\n濃度を上げることによって層間イオンを調整することも可能です。",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "mq4m1xh3kfltz",
+    "category": "土木",
+    "question": "膨潤性を考えると入れてはいけないイオンが存在しますか？\n→吸水性に優れることで水分子を取り込みやすくなり膨潤するが、水を排出してしまった場合、元の堆積よりも収縮してしまうなど。",
+    "answer": "膨潤性のある層間陽イオンはLi、Naのみです。\nそれ以外のアルカリ金属、アルカリ土類金属のイオンは膨潤性に乏しい傾向を示します。",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "mq4m8d3iv1puq",
+    "category": "土木",
+    "question": "pHの影響について、使用環境はアルカリ性と酸性に挟まれております。\n時間経過に伴い酸性環境に傾くとベントナイトの特性に変化があるのかを懸念しております。",
+    "answer": "pHの影響はあると思われます。\n\n【酸性】\n長期的な影響とすると、酸性=H+(プロトン)の存在があると思います。\nプロトンは非常に小さいことから、モンモリロナイト結晶自体に侵入し、層電荷の元である八面体まで侵入して電荷を中和すると言われております。\n\n【アルカリ性】\n強アルカリの場合には結晶破壊の可能性があります。\n弱アルカリの場合には本来のモンモリロナイトのpH相当となりますので変化は少ないと思われます。",
+    "date": "2025-11-12"
+  },
+  {
+    "id": "mq4md2k92mavl",
+    "category": "土木",
+    "question": "コンクリートと物理的に接触している場合、接触部のコンクリートの成分がベントナイト中に溶け込むようなことはあり得ますか？\n→コンクリート表面の成分(Ca(OH)2など)が経時的にベントナイト中に溶け込むと考えています。",
+    "answer": "ニュアンスの違いかもしれませんが、ベントナイト自体にコンクリートを溶解する力はないと思われますが、ベントナイトが分散した水の持つpHやイオン、活性化した場合に残存する炭酸ナトリウムなどによって表面のCaと作用する可能性はあると思います。",
+    "date": "2025-11-12"
+  }
+]
+</script>
+
+<style>
+  :root {
+    --bg:#F5F3EF; --surface:#FFF; --surface2:#F0EDE8;
+    --border:#E0DAD0; --text:#1A1814; --text2:#6B6358; --text3:#9B9088;
+    --accent:#2C5F8A; --accent-light:#EAF1F8;
+    --red:#B91C1C; --red-bg:#FEE2E2;
+    --green-bg:rgba(80,200,120,0.22); --green-border:rgba(80,200,120,0.45); --green-text:#A7F3D0;
+    --cat-doboku:#7A5C3A; --cat-doboku-bg:#F5EFE6;
+    --cat-imono:#4A6070;  --cat-imono-bg:#E8EFF4;
+    --cat-kagaku:#3A6B4A; --cat-kagaku-bg:#E6F2EB;
+    --cat-kesho:#8A3A6B;  --cat-kesho-bg:#F5E6F0;
+    --cat-kankyo:#4A7A3A; --cat-kankyo-bg:#EAF4E6;
+    --cat-nekosuna:#8A5A2A; --cat-nekosuna-bg:#F5EBE0;
+    --cat-zatsu:#5A5A6A;  --cat-zatsu-bg:#EEEEEE;
+    --radius:10px; --shadow:0 2px 12px rgba(0,0,0,0.08);
+    --shadow-hover:0 4px 20px rgba(0,0,0,0.13); --tr:0.2s ease;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif;
+    background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;}
+
+  /* HEADER */
+  .hd{background:linear-gradient(135deg,#1A2E40,#2C5F8A);color:#fff;
+    padding:20px 16px 16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,0.25);}
+  .hd-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .hd-title{display:flex;align-items:center;gap:10px;}
+  .hd-icon{width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .hd h1{font-size:17px;font-weight:700;letter-spacing:.02em;}
+  .hd h1 small{display:block;font-size:11px;font-weight:400;opacity:.7;margin-top:1px;}
+  .hd-act{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+  .ibtn{background:rgba(255,255,255,0.15);border:none;border-radius:8px;color:#fff;
+    padding:7px 10px;font-size:13px;cursor:pointer;transition:var(--tr);white-space:nowrap;}
+  .ibtn:hover{background:rgba(255,255,255,0.25);}
+  .ibtn.save-btn{background:rgba(80,200,120,0.25);border:1px solid rgba(80,200,120,0.4);}
+  .ibtn.save-btn:hover{background:rgba(80,200,120,0.38);}
+  .ibtn.logout-btn{background:rgba(255,180,50,0.25);border:1px solid rgba(255,180,50,0.4);}
+  .admin-badge{display:none;background:var(--green-bg);border:1px solid var(--green-border);
+    border-radius:6px;color:var(--green-text);font-size:11px;font-weight:600;
+    padding:3px 8px;white-space:nowrap;}
+  .sw{position:relative;}
+  .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;opacity:.5;}
+  #searchInput{width:100%;padding:10px 12px 10px 36px;border:none;border-radius:8px;
+    background:rgba(255,255,255,0.18);color:#fff;font-size:14px;font-family:inherit;outline:none;transition:var(--tr);}
+  #searchInput::placeholder{color:rgba(255,255,255,.55);}
+  #searchInput:focus{background:rgba(255,255,255,0.28);}
+
+  /* TABS */
+  .tw{background:var(--surface);border-bottom:1px solid var(--border);
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .tw::-webkit-scrollbar{display:none;}
+  .tabs{display:flex;padding:0 8px;min-width:max-content;gap:2px;}
+  .tab{border:none;background:none;padding:12px 14px;font-size:13px;font-family:inherit;
+    font-weight:500;color:var(--text2);cursor:pointer;white-space:nowrap;
+    border-bottom:3px solid transparent;transition:var(--tr);display:flex;align-items:center;gap:5px;}
+  .tab:hover{color:var(--text);background:var(--surface2);}
+  .tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .tab-b{background:var(--surface2);border-radius:10px;padding:1px 6px;font-size:11px;
+    font-weight:600;color:var(--text3);min-width:20px;text-align:center;}
+  .tab.active .tab-b{background:var(--accent-light);color:var(--accent);}
+
+  /* MAIN */
+  .main{padding:16px;max-width:800px;margin:0 auto;}
+  .ri{font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 2px;}
+  .ql{display:flex;flex-direction:column;gap:10px;}
+
+  /* QA CARDS */
+  .qa{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);
+    overflow:hidden;transition:var(--tr);border:1px solid var(--border);}
+  .qa:hover{box-shadow:var(--shadow-hover);}
+  .qa-h{padding:14px 16px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;user-select:none;}
+  .qa-cb{flex-shrink:0;font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;
+    margin-top:2px;letter-spacing:.03em;}
+  .qa-q{flex:1;font-size:14px;font-weight:600;line-height:1.5;color:var(--text);}
+  .qa-ar{flex-shrink:0;font-size:12px;color:var(--text3);margin-top:3px;transition:transform .25s;}
+  .qa.open .qa-ar{transform:rotate(90deg);}
+  .qa-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border);}
+  .qa.open .qa-body{display:block;}
+  .qa-ans{font-size:14px;color:var(--text2);line-height:1.75;padding-top:13px;white-space:pre-wrap;}
+  .qa-meta{display:flex;align-items:center;justify-content:space-between;
+    margin-top:12px;padding-top:10px;border-top:1px solid var(--border);}
+  .qa-dt{font-size:11px;color:var(--text3);}
+  .qa-ac{display:flex;gap:6px;}
+  .smbtn{border:1px solid var(--border);background:var(--surface2);border-radius:5px;
+    padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit;color:var(--text2);
+    transition:var(--tr);display:inline-flex;align-items:center;gap:4px;}
+  .smbtn:hover{background:var(--border);}
+  .smbtn.del:hover{background:var(--red-bg);color:var(--red);border-color:#FECACA;}
+
+  /* FAB */
+  .fab{position:fixed;bottom:24px;right:20px;width:56px;height:56px;
+    background:linear-gradient(135deg,#2C5F8A,#1A3D5C);color:#fff;border:none;
+    border-radius:50%;font-size:26px;cursor:pointer;
+    box-shadow:0 4px 16px rgba(44,95,138,0.45);
+    display:none;align-items:center;justify-content:center;
+    transition:transform .2s,box-shadow .2s;z-index:200;}
+  .fab:hover{transform:scale(1.08);}
+  .fab:active{transform:scale(.95);}
+
+  /* EMPTY */
+  .empty{text-align:center;padding:60px 20px;color:var(--text3);}
+  .empty .ei{font-size:48px;margin-bottom:12px;}
+  .empty p{font-size:14px;}
+
+  /* OVERLAY BASE */
+  .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);
+    z-index:300;align-items:flex-end;}
+  .ov.show{display:flex;}
+  @media(min-width:600px){
+    .ov{align-items:center;justify-content:center;padding:20px;}
+    .ov .sh{border-radius:var(--radius);max-width:560px;}
+  }
+  .sh{background:var(--surface);width:100%;border-radius:16px 16px 0 0;
+    padding:24px 20px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .sh h2{font-size:17px;font-weight:700;margin-bottom:20px;color:var(--text);}
+  .fg{margin-bottom:16px;}
+  .fg label{display:block;font-size:12px;font-weight:600;color:var(--text3);
+    margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
+  .fg select,.fg textarea,.fg input{width:100%;border:1.5px solid var(--border);
+    border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;
+    color:var(--text);background:var(--bg);outline:none;transition:border-color .2s;
+    -webkit-appearance:none;}
+  .fg select:focus,.fg textarea:focus,.fg input:focus{border-color:var(--accent);background:var(--surface);}
+  .fg textarea{resize:vertical;min-height:100px;}
+  .ma{display:flex;gap:10px;margin-top:20px;}
+  .bok{flex:1;background:linear-gradient(135deg,#2C5F8A,#1A3D5C);color:#fff;border:none;
+    border-radius:8px;padding:13px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;}
+  .bno{flex:1;background:var(--surface2);color:var(--text2);border:1px solid var(--border);
+    border-radius:8px;padding:13px;font-size:15px;font-family:inherit;cursor:pointer;}
+
+  /* CENTER MODAL */
+  .cov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
+    z-index:400;align-items:center;justify-content:center;padding:20px;}
+  .cov.show{display:flex;}
+  .card{background:var(--surface);border-radius:14px;padding:28px 24px;
+    width:100%;max-width:360px;box-shadow:0 8px 32px rgba(0,0,0,.2);}
+  .card h2{font-size:18px;font-weight:700;margin-bottom:6px;}
+  .card p{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.6;}
+  .pww{position:relative;}
+  .pww input{width:100%;padding:11px 42px 11px 14px;border:1.5px solid var(--border);
+    border-radius:8px;font-size:15px;font-family:inherit;color:var(--text);background:var(--bg);
+    outline:none;transition:border-color .2s;-webkit-appearance:none;}
+  .pww input:focus{border-color:var(--accent);background:var(--surface);}
+  .pwe{position:absolute;right:12px;top:50%;transform:translateY(-50%);
+    background:none;border:none;cursor:pointer;font-size:16px;color:var(--text3);padding:4px;}
+  .errmsg{font-size:13px;color:var(--red);background:var(--red-bg);border-radius:6px;
+    padding:8px 12px;margin-top:10px;display:none;}
+  .div{border:none;border-top:1px solid var(--border);margin:16px 0;}
+  .lnk{display:block;text-align:center;font-size:13px;color:var(--accent);
+    cursor:pointer;background:none;border:none;font-family:inherit;width:100%;
+    padding:4px;text-decoration:underline;}
+  .fgsm{margin-bottom:14px;}
+  .fgsm label{display:block;font-size:12px;font-weight:600;color:var(--text3);
+    margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;}
+  .ferr{font-size:12px;color:var(--red);margin-top:6px;display:none;}
+
+  /* IMPORT */
+  .iov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);
+    z-index:300;align-items:center;justify-content:center;padding:20px;}
+  .iov.show{display:flex;}
+  .icard{background:var(--surface);border-radius:var(--radius);padding:24px 20px;
+    width:100%;max-width:480px;max-height:80vh;overflow-y:auto;}
+  .icard h2{font-size:17px;font-weight:700;margin-bottom:16px;}
+  .icard p{font-size:13px;color:var(--text2);margin-bottom:12px;line-height:1.6;}
+  .icard textarea{width:100%;height:120px;border:1.5px solid var(--border);border-radius:8px;
+    padding:10px;font-size:12px;font-family:monospace;resize:vertical;outline:none;
+    background:var(--bg);color:var(--text);}
+
+  /* 保存確認トースト */
+  .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:#1E3A1E;color:#A7F3D0;border:1px solid rgba(80,200,120,0.4);
+    border-radius:10px;padding:12px 20px;font-size:13px;font-weight:600;
+    opacity:0;transition:opacity .3s,transform .3s;z-index:500;white-space:nowrap;
+    pointer-events:none;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* カテゴリ色 */
+  .cat-土木{background:var(--cat-doboku-bg);color:var(--cat-doboku);}
+  .cat-鋳物{background:var(--cat-imono-bg); color:var(--cat-imono);}
+  .cat-化学{background:var(--cat-kagaku-bg);color:var(--cat-kagaku);}
+  .cat-化粧品{background:var(--cat-kesho-bg);color:var(--cat-kesho);}
+  .cat-環境{background:var(--cat-kankyo-bg);color:var(--cat-kankyo);}
+  .cat-猫砂{background:var(--cat-nekosuna-bg);color:var(--cat-nekosuna);}
+  .cat-雑 {background:var(--cat-zatsu-bg); color:var(--cat-zatsu);}
+  mark{background:#FEF08A;color:var(--text);border-radius:2px;padding:0 1px;}
+  ::-webkit-scrollbar{width:4px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hd">
+  <div class="hd-top">
+    <div class="hd-title">
+      <div class="hd-icon">📋</div>
+      <h1>お問い合わせ FAQ<small>株式会社ホージュン 社内Wiki</small></h1>
+    </div>
+    <div class="hd-act">
+      <span class="admin-badge" id="adminBadge" style="display: inline-block;">🔓 管理者</span>
+      <button class="ibtn save-btn" id="saveBtn" onclick="saveAndExport()" style="display: inline-block; animation: auto ease 0s 1 normal none running none;">💾 保存して出力</button>
+      <button class="ibtn" id="importBtn" onclick="openImport()" style="display: inline-block;">📥 Q&amp;A取込</button>
+      <button class="ibtn logout-btn" id="loginBtn" onclick="handleLoginBtn()">🔓 ログアウト</button>
+    </div>
+  </div>
+  <div class="sw">
+    <span class="si">🔍</span>
+    <input type="text" id="searchInput" placeholder="質問・回答を全文検索…" oninput="render()">
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tw"><div class="tabs" id="tabs"><button class="tab" onclick="setCat('全て')">
+      📋 全て<span class="tab-b">33</span></button><button class="tab active" onclick="setCat('土木')">
+      🏗️ 土木<span class="tab-b">24</span></button><button class="tab" onclick="setCat('鋳物')">
+      ⚙️ 鋳物<span class="tab-b">0</span></button><button class="tab" onclick="setCat('化学')">
+      🧪 化学<span class="tab-b">9</span></button><button class="tab" onclick="setCat('化粧品')">
+      💄 化粧品<span class="tab-b">0</span></button><button class="tab" onclick="setCat('環境')">
+      🌿 環境<span class="tab-b">0</span></button><button class="tab" onclick="setCat('猫砂')">
+      🐱 猫砂<span class="tab-b">0</span></button><button class="tab" onclick="setCat('雑')">
+      📁 雑<span class="tab-b">0</span></button></div></div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="ri" id="ri">24 件</div>
+  <div class="ql" id="ql"><div class="qa" id="cmq4l9q2jgszlo">
+      <div class="qa-h" onclick="tog('mq4l9q2jgszlo')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ベントナイトはCa型、Na型があるようですが、他イオン(例えばKイオン)にカチオンを置換できますか。
+また、置換できた場合、膨潤性や水和エネルギーや結晶層を引き付ける力などの特性は変化すると考えられますか。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">Kを含む他イオンに置換可能です。
+特性は変化しますので、層間陽イオンの種類により膨潤性が変化しております。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4l9q2jgszlo')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4l9q2jgszlo')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4lfrmgtn5xr">
+      <div class="qa-h" onclick="tog('mq4lfrmgtn5xr')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ベントナイトを水に分散させた際、Kイオンを添加すると他カチオンと置換できますか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">Kイオンはモンモリロナイト結晶の6員環とサイズがほぼ同一のため安定化しやすい傾向にあります。
+このため、陽イオン交換容量測定の最後の置換にKイオン(KCl)を用いております。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4lfrmgtn5xr')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4lfrmgtn5xr')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4llwuizjhhs">
+      <div class="qa-h" onclick="tog('mq4llwuizjhhs')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. MgCl2、Mg(CH3COO)2、CH3COOKなど、カチオンが同じであってもアニオンの違いでベントナイトの特性は異なるのでしょうか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">カチオンの反応場とアニオンの反応場が異なります。
+
+【カチオン交換の影響】
+イオン交換はカチオンの種類によります。
+その際のアニオン種の影響は、電離度ではないかと推測します。
+
+【アニオン種による影響】
+アニオン種として強酸種の場合には電解質としての影響が大きい傾向がありますが、弱酸種の場合には会合剤として働くことがあります。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4llwuizjhhs')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4llwuizjhhs')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4lxta9wpj4o">
+      <div class="qa-h" onclick="tog('mq4lxta9wpj4o')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 濃度の影響について、2価のイオンと1価のイオンが存在する場合、2価のイオンの交換が抑制されるということは、例えば1価のイオンの量を調整することで特性も調整することが可能なのでしょうか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">同一濃度の場合には、多価陽イオンを優先的に取り入れます。
+濃度が変更された場合には逆も可能です。
+例として、2価のCaイオンを多く含むCa型ベントナイトへNaを供給することによりNa化を行います。
+濃度を上げることによって層間イオンを調整することも可能です。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4lxta9wpj4o')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4lxta9wpj4o')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4m1xh3kfltz">
+      <div class="qa-h" onclick="tog('mq4m1xh3kfltz')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 膨潤性を考えると入れてはいけないイオンが存在しますか？
+→吸水性に優れることで水分子を取り込みやすくなり膨潤するが、水を排出してしまった場合、元の堆積よりも収縮してしまうなど。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">膨潤性のある層間陽イオンはLi、Naのみです。
+それ以外のアルカリ金属、アルカリ土類金属のイオンは膨潤性に乏しい傾向を示します。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4m1xh3kfltz')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4m1xh3kfltz')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4m8d3iv1puq">
+      <div class="qa-h" onclick="tog('mq4m8d3iv1puq')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. pHの影響について、使用環境はアルカリ性と酸性に挟まれております。
+時間経過に伴い酸性環境に傾くとベントナイトの特性に変化があるのかを懸念しております。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">pHの影響はあると思われます。
+
+【酸性】
+長期的な影響とすると、酸性=H+(プロトン)の存在があると思います。
+プロトンは非常に小さいことから、モンモリロナイト結晶自体に侵入し、層電荷の元である八面体まで侵入して電荷を中和すると言われております。
+
+【アルカリ性】
+強アルカリの場合には結晶破壊の可能性があります。
+弱アルカリの場合には本来のモンモリロナイトのpH相当となりますので変化は少ないと思われます。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4m8d3iv1puq')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4m8d3iv1puq')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4md2k92mavl">
+      <div class="qa-h" onclick="tog('mq4md2k92mavl')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. コンクリートと物理的に接触している場合、接触部のコンクリートの成分がベントナイト中に溶け込むようなことはあり得ますか？
+→コンクリート表面の成分(Ca(OH)2など)が経時的にベントナイト中に溶け込むと考えています。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">ニュアンスの違いかもしれませんが、ベントナイト自体にコンクリートを溶解する力はないと思われますが、ベントナイトが分散した水の持つpHやイオン、活性化した場合に残存する炭酸ナトリウムなどによって表面のCaと作用する可能性はあると思います。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2025-11-12</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mq4md2k92mavl')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mq4md2k92mavl')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa001">
+      <div class="qa-h" onclick="tog('aa001')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. VGメーターから得られるデータ（AV・PV・YV・GS）について教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">VGメーターで得られる主なデータは以下の4種類です。
+
+■ AV（Apparent Viscosity：見掛け粘度）
+VGメーターは回転数がせん断速度を、ダイヤルの読み値がせん断力を示しており、本試験結果は600rpmでの見掛け粘度となります。
+計算式：μ（mPa・s）= 300 × F / R
+　R＝回転数、F＝回転数Rにおけるダイヤルの読み値（lb/100ft²）、300＝単位変換常数
+
+■ PV（Plastic Viscosity：塑性粘度）
+泥水中に含まれている固体粒子間の機械的摩擦、固体粒子と液相との間の機械的摩擦、並びに液相自体のせん断によって生じる流動抵抗。
+計算式：PV = 600rpm読み値 − 300rpm読み値
+
+■ YV（Yield Value：降伏値）
+流体が流動状態にあるとき流動を続けるのに必要なせん断力の測定値で、泥水中の粘土粒子間のけん引力によって生じる流動抵抗。
+計算式：YV（lb/100ft²）= 300rpm読み値 − PV
+
+■ GS（Gel Strength：ゲル強度）
+泥水が静置状態から流動を始めるために必要なせん断力の測定値。
+測定方法：600rpmにて10秒間回転させた後、10秒または10分経過後に3rpmで回転させ、ダイヤルの針が最大となったところを読む。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa001')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa001')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa002">
+      <div class="qa-h" onclick="tog('aa002')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 泥水の凝集劣化のメカニズムと、炭酸カルシウム安定液で凝集反応が少ない理由を教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">■ 凝集劣化の原理
+ベントナイトの主成分モンモリロナイトは板状結晶で、結晶表面が負電荷（−）を帯びており、Na⁺・K⁺・Ca²⁺・Mg²⁺等が層間陽イオンとして存在しています。泥水中にCa²⁺等の外部陽イオンが混入すると、結晶層間に入り込んで凝集反応を示します。
+
+■ 炭酸カルシウムの影響による一例
+炭カルに比べ、トチクレーではCa2+やMg2+といった2価のカチオンが多く検出されたということでモンモリロナイトの結晶層間にそれらが入り込むことで凝集反応を示したため、前述の泥水性状の差異を示したのではないかという結論に至りました。
+今回はCa2+やMg2+といったカチオンを測定し、その結果による考察となっておりますが、モンモリロナイトはカチオン、アニオン両方の影響を受け凝集いたしますので、Ca2+やMg2+などと共に存在するカウンターイオンの影響も受けて凝集しているということになります。
+
+■ 基本的な考え方
+・濾水量 ＝ ベントナイト添加量の大小
+・粘性　 ＝ イオン性成分の大小
+※ベントナイトをイオン性成分の影響を受けやすい銘柄に変更した場合は、同じ添加量でも濾水量に差が出る場合があります。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa002')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa002')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa003">
+      <div class="qa-h" onclick="tog('aa003')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 陰イオンが泥水の凝集に影響するメカニズムを教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">陰イオンによる凝集への影響は主に2つのメカニズムから説明されます。
+
+■ メカニズム①：イオン種による直接反応
+・陽イオン → 結晶表面（負電荷）との静電反応
+・陰イオン → 層間陽イオンとの静電相互作用（クーロン力）
+この両方の反応が凝集要因の一つとなります。
+
+■ メカニズム②：電気二重層の減少
+ベントナイト分散粒子はコロイドとして働くため、電解質（イオン性成分）の増加とともに電気二重層（粒子間の反発距離の指標）が減少します。その結果、粒子同士が接近し、ファンデルワールス力の増大によって凝集が生じます。
+
+つまり、陽イオン・陰イオンを問わず電解質濃度全体の上昇が凝集を促進します。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa003')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa003')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa004">
+      <div class="qa-h" onclick="tog('aa004')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ゲル化した泥水で濾水量が全量通水してしまうメカニズムを教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">健全な泥水では、モンモリロナイトの結晶が一枚一枚バラバラに分散（コロイド状態）しており、加圧時にフィルター面で整然と配向した泥膜を形成して止水します。
+
+ゲル化が起きた場合の流れは以下の通りです。
+①泥水中にCa²⁺等が混入すると、モンモリロナイト結晶層間にイオンが入り込み凝集反応（ゲル化）が生じる。
+②層間に拘束していた水が吐き出され、結晶同士の距離が縮まる。
+③凝集した粒子は「大きな塊（フロック）」となり、フィルター面で均一な泥膜を形成できなくなる。
+④目詰まりが起きず、水が通過してしまう → 濾水量増大。
+
+※凝集は陽イオンだけでなく、陰イオン（層間イオンとのクーロン力）や電解質濃度増加によるファンデルワールス力の増大によっても生じます。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa004')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa004')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa005">
+      <div class="qa-h" onclick="tog('aa005')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 消石灰（Ca(OH)₂）は安定液をゲル化させますか？Ca化合物は全てゲル化の原因になりますか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">消石灰は安定液をゲル化させる成分です。試験中に消石灰を安定液に混入したところ、実際にゲル化することを確認しています。
+
+消石灰の溶解度は約1.55 g/L（20℃）であり、ある程度水に溶けてカルシウムイオンを供給し、ベントナイトと反応してゲル化します。
+
+Ca化合物全般については、溶解してCa²⁺を供給するものであればゲル化の原因となります。ただし、溶解度が極めて低い化合物はCa²⁺の供給量が少ないため影響は限定的です。実際の挙動は溶解度とイオン溶出量に依存します。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa005')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa005')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa006">
+      <div class="qa-h" onclick="tog('aa006')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ベントナイト・マジカルクレー(炭カル)・トチクレー・掘削地盤はいずれもゲル化の対象になりますか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">ゲル化はベントナイト（主成分：モンモリロナイト）がイオン性成分と反応することで発生する現象です。
+
+各材料の位置づけは以下の通りです。
+・ベントナイト：ゲル化の主体。モンモリロナイト含有量が多いほど影響が大きい。
+・マジカルクレー・トチクレー：少なからずイオン性成分を含む。溶出量がある程度であればゲル化には至らないが、溶出量が多くなるとゲル化する。
+・掘削した地盤：地盤中のイオン性成分（Ca²⁺・Mg²⁺等）が溶出し、泥水の凝集劣化を引き起こす可能性がある。
+
+共通の考え方：イオン性成分の溶出量が閾値を超えるとゲル化が進行します。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa006')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa006')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa007">
+      <div class="qa-h" onclick="tog('aa007')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 生石灰パイル一般量混入の比重が安定液単体とあまり変わらないのはなぜですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">生石灰パイル一般量混入の比重計測は、2mmのふるいにかけて篩を通過した試料のみで実施しているため、2mm以上の掘削対象土が除外された分、比重が小さくなっています。
+
+混入試料すべてを考慮した理論比重の算出結果は以下の通りです。
+
+　安定液単体：比重 1.22（体積 1000 mL、質量 1217 g）
+　掘削対象土：比重 1.695（体積 15.4 mL、質量 261.03 g）
+　生石灰パイル：比重 1.589（体積 0.6 mL、質量 9.53 g）
+　合計（理論比重）：1.464
+
+つまり、篩処理による粗粒分の除外が計測値を低く見せている要因です。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa007')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa007')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa008">
+      <div class="qa-h" onclick="tog('aa008')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ろ水量・ケーキ厚が練り混ぜ直後より1日経過後の方が小さくなるのはなぜですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">ベントナイトは水中で時間の経過とともに膨潤が進み、撹拌することで結晶一枚一枚がバラバラになり分散した状態となります。
+
+■ 1日経過後の方が値が小さい理由
+・膨潤が十分進んだ泥水を加圧すると、結晶が一枚一枚きれいに配向した泥膜が即時的に形成される → 濾水量が少ない。
+・撹拌直後（未分散が多い状態）では、結晶がある程度まとまった状態で多く存在するため、きれいに配向した泥膜が形成されにくく、濾水量が比較的多くなる。
+
+■ ケーキ厚との関係
+濾水が多く出ている状態では軟弱な泥膜が形成され続けるため、結果的にケーキも厚くなります。逆に濾水量が少ない（泥膜が良好）状態ではケーキも薄く抑えられます。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa008')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa008')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa009">
+      <div class="qa-h" onclick="tog('aa009')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 生石灰パイルが安定液に混入した際のゲル化は、アルカリ環境によるものですか？それともCa²⁺との反応によるものですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">主にpHに関係なく、ベントナイトとカルシウムイオン（Ca²⁺）が反応することによる現象です。
+
+■ Ca²⁺によるゲル化
+電気二重層の減少とカードハウス構造のより強固な形成が主な要因です。
+
+■ 酸性環境下のゲル化
+酸性環境では水素イオン濃度が高くなることにより結晶端面のプラス電荷が強化されるため、強固なカードハウス構造が形成されゲル化要因となります。
+
+■ アルカリ環境について
+生石灰パイル混入によるゲル化はアルカリ環境下が主因ではなく、あくまでCa²⁺の溶出・反応が主体です。ゲル化の原因をアルカリ環境によるものとCa²⁺反応によるものに分けて考えることは可能ですが、現実の現象では両者が複合的に作用しています。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa009')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa009')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa010">
+      <div class="qa-h" onclick="tog('aa010')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ベントナイト泥水への分散剤添加の効果を教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">分散剤を添加すると、無添加の泥水に比べて粘性が低下します。
+
+■ メカニズム
+ベントナイト単体では、粒子の面（負電荷）とエッジ（正電荷）が静電引力で引き合い、電気的なネットワーク（カードハウス構造）を形成して増粘します。
+
+分散剤を添加すると、分散剤の陰イオン成分がエッジの正電荷を中和し、粒子全体が負電荷に偏ります。その結果、粒子間に反発力が生じてネットワーク構造が解け、粘性が低下します。
+
+■ 実用上の効果
+・高濃度配合でも流動性を確保できる。
+・送泥・循環ポンプへの負荷を低減できる。
+・ただし過剰添加は泥膜性能（止水性）に影響する場合があるため、適正量の管理が重要です。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa010')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa010')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa011">
+      <div class="qa-h" onclick="tog('aa011')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 同配合で撹拌1時間後の方が直後よりケーキ厚が薄い結果が出ました。粘度が高い方がケーキが厚くなるイメージがありますが、正しいですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">基本的に時間の経過によるケーキ厚の変化は軽微です。粘性とケーキ厚の直接的な対応関係については、混入物の有無によって異なります。
+
+■ ケーキが厚くなる主な要因
+① 泥水濃度を上げた場合：粘性増大・ケーキ厚増大・ろ水量減少
+② 泥水に海水やセメント等が混入した場合：粘性低下・ケーキ厚増大・ろ水量増大
+
+■ 時間経過の場合（今回のケース）
+ろ水量については、ベントナイト（モンモリロナイト）が膨潤・分散するので時間の経過とともに少なくなります。それに伴いケーキも薄くなる傾向があります。
+
+つまり「粘性が高い＝ケーキが厚い」は外部からの汚染物質が加わった場合のパターンであり、ベントナイト自体の膨潤・分散が進む時間変化では逆の傾向（ケーキが薄くなる）が見られることがあります。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa011')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa011')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa012">
+      <div class="qa-h" onclick="tog('aa012')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. ろ水量が多いとケーキ厚が厚くなる傾向があります。これは品質の悪い泥水という理解でよいですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">粘土泥水の場合、ベントナイト単体ではなく粘土も込みの濃度であるため、ろ水量が少なくなるとは限りません。ベントナイト銘柄の違いで差が出るという見方が適切です。
+
+ベントナイトは銘柄によって性状が異なり、同濃度であってもろ水量は一致しません。例えばTB-250のような低粘性品はろ水量も多くなります。
+
+■ 改善策
+ベントナイトと粘土の配合比を変更するだけで、比重を変えずにろ水量・ケーキ厚を改善できます。
+・ベントナイトを増やし、粘土を減らす → ろ水量の減少と泥膜形成の改善。
+・良質な泥膜が形成できれば、ケーキも薄くなります。
+
+■ 品質評価の考え方
+「ろ水量が多い＝品質が悪い」という極端な断定よりも、配合・銘柄・運用条件を総合的に評価することが重要です。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa012')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa012')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa013">
+      <div class="qa-h" onclick="tog('aa013')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 活性化ベントナイト（ネオクレイ）の炭酸ナトリウム添加量を教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">ネオクレイは固形分に対して3〜4%の炭酸ナトリウム（Na₂CO₃）を添加して改質しています。
+
+■ 活性化ベントナイトとは
+Ca型ベントナイトに対して数wt%の炭酸ナトリウムを添加し、人工的にNa型化させたものを活性化ベントナイト（ソーダ活性化ベントナイト）と呼びます。
+
+■ 添加量が固定でない理由
+掘削箇所によって原鉱の品質が多少異なるため、物性（膨潤力・粘度等）を確認しながら炭酸ナトリウムの添加量を3〜4%の範囲で調整しています。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa013')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa013')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa014">
+      <div class="qa-h" onclick="tog('aa014')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 試験結果の単位（cPとlb/100ft²）の関係について教えてください。降伏値の計算でcPをそのまま使ってよいですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">■ VGメーターの目盛りについて
+VGメーターの目盛り読み値＝せん断応力となります。そのため試験結果表中の600rpm・300rpmの単位はlb/100ft²です。
+
+■ 降伏値の計算式
+降伏値（lb/100ft²）＝ 300rpmの読み値 − 塑性粘度
+塑性粘度 ＝ 600rpmの読み値 − 300rpmの読み値（単位はいずれもlb/100ft²）
+
+したがって：
+降伏値（lb/100ft²）＝ 300rpm − （600rpm − 300rpm）
+
+計算上は「塑性粘度で出てきた値をそのまま使っている」だけであり、最終的に降伏値の単位はlb/100ft²になります。
+
+■ 単位の注記
+以前（2022年頃）はcP表記を使用していましたが、現在はSI単位のmPa・sを使用しています（数値は同一：1 cP ＝ 1 mPa・s）。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa014')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa014')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="caa015">
+      <div class="qa-h" onclick="tog('aa015')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. スーパークレイとクニゲルV1の砂分測定で測定不可となった原因の違いを教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">■ 砂分試験の方法
+泥水中の200メッシュ（74μm）の網を通すことで砂分を回収します。200メッシュはシルトと細砂の中間の粒径に相当します。
+
+■ クニゲルV1の場合
+「透明の浮遊物」については分析できていないため断定できませんが、何らかの増粘剤の類と推測されます。砂分が多く見られたため測定不可となりましたが、これは実際の砂・シルト粒子が網に溜まり通過できなくなった状態です。
+
+■ スーパークレイの場合
+濃度を上げたことで粘性が増大し、ベントナイトの未分散状態（ダマ）も多くなり、ふるいを通過できなくなったものです。撹拌条件を一定にしているため、高濃度＝高粘性になるとダマが残りやすくなります。
+
+■ 測定不可となる要因の違い
+・クニゲルV1：実際の砂・シルト粒子の目詰まり
+・スーパークレイ：粘性増大によるダマ（未分散のベントナイト）の目詰まり
+
+■ 対応策
+水希釈や撹拌強化で改善できる場合がありますが、通常の砂分試験では行わない方法であるため、前段階の粘性管理が重要です。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('aa015')">✏️ 編集</button><button class="smbtn del" onclick="doDel('aa015')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmpqfkfzkhr3np">
+      <div class="qa-h" onclick="tog('mpqfkfzkhr3np')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 赤城の浸出カチオンを測定したところ、以前いただいた結果と異なりました。なぜですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">ベントナイトは天然鉱物であるため、浸出カチオンの測定結果にはバラつきが生じます。主な原因は以下の通りです。
+
+■Na量のバラつき
+ソーダ灰（Na2CO3）の添加量は製品規格を見ながら調整していますが、毎回まったく同一の結果にはなりません。原鉱のNa含有量が時期によって異なることも影響します。
+
+■Caのバラつき
+Caは層間イオンとして存在するものだけでなく、Calcite（CaCO3）等の夾雑鉱物由来のCaも測定値に影響します。このため特にCaはバラつきが大きくなりやすいです。
+
+測定時の原鉱ロットによってCaが少ない状態・多い状態が生じることがあり、以前の結果と異なる値が出ることがあります。天然鉱物固有の性質としてご承知おきください。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mpqfkfzkhr3np')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mpqfkfzkhr3np')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmpqfkfzklw1fg">
+      <div class="qa-h" onclick="tog('mpqfkfzklw1fg')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 「ジオクレイ-C」のモンモリロナイト含有率はどの程度ですか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">一般工業用ベントナイトのモンモリロナイト含有率は、基本的に測定を行っておりません。
+
+■簡易測定方法について
+メチレンブルー吸着量試験（カチオン性染料をモンモリロナイト結晶表面に吸着させる試験）から凡その純度を推定する方法がありますが、この方法では正確な純度測定はできません。
+
+この方法による参考値として、ジオクレイ-Cのモンモリロナイト含有率は約64%となります。ただしあくまでも参考値としてご参照ください。
+
+一般工業用ベントナイトのモンモリロナイト純度を正確に算出することは難しいため、精度が必要な場合はXRD等の分析方法との組み合わせをご検討ください。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('mpqfkfzklw1fg')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mpqfkfzklw1fg')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div></div>
+</div>
+
+<!-- FAB -->
+<button class="fab" id="fab" onclick="openAdd()" title="新規追加" style="display: flex;">＋</button>
+
+<!-- トースト -->
+<div class="toast" id="toast">✅ HTMLを出力しました。共有フォルダのファイルを上書きしてください。</div>
+
+<!-- ADD/EDIT MODAL -->
+<div class="ov" id="editOv" onclick="if(event.target===this)closeEdit()">
+  <div class="sh">
+    <h2 id="editTitle">📝 Q&amp;A を追加</h2>
+    <div class="fg"><label>分野</label>
+      <select id="fCat">
+        <option value="土木">🏗️ 土木</option><option value="鋳物">⚙️ 鋳物</option>
+        <option value="化学">🧪 化学</option><option value="化粧品">💄 化粧品</option><option value="環境">🌿 環境</option>
+        <option value="猫砂">🐱 猫砂</option><option value="雑">📁 雑</option>
+      </select>
+    </div>
+    <div class="fg"><label>質問</label><textarea id="fQ" rows="3" placeholder="質問内容…"></textarea></div>
+    <div class="fg"><label>回答</label><textarea id="fA" rows="6" placeholder="回答内容…"></textarea></div>
+    <div class="fg"><label>登録日（省略可）</label><input type="date" id="fD"></div>
+    <div class="ma">
+      <button class="bno" onclick="closeEdit()">キャンセル</button>
+      <button class="bok" onclick="saveEntry()">保存する</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="cov" id="loginCov">
+  <div class="card">
+    <h2>🔐 管理者ログイン</h2>
+    <p>編集・削除・Q&amp;A追加にはパスワードが必要です。</p>
+    <div class="pww">
+      <input type="password" id="loginPw" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')doLogin()">
+      <button class="pwe" onclick="toggleV('loginPw',this)">👁️</button>
+    </div>
+    <div class="errmsg" id="loginErr" style="display: none;">パスワードが違います</div>
+    <div class="ma" style="margin-top:20px">
+      <button class="bno" onclick="closeLogin()">キャンセル</button>
+      <button class="bok" onclick="doLogin()">ログイン</button>
+    </div>
+    <hr class="div">
+    <button class="lnk" onclick="closeLogin();openPwChange()">パスワードを変更する</button>
+  </div>
+</div>
+
+<!-- PW CHANGE MODAL -->
+<div class="cov" id="pwCov">
+  <div class="card">
+    <h2>🔑 パスワード変更</h2>
+    <p>現在のパスワードを確認後、新しいパスワードを設定してください。</p>
+    <div class="fgsm"><label>現在のパスワード</label>
+      <div class="pww"><input type="password" id="pwCur" placeholder="現在のパスワード">
+      <button class="pwe" onclick="toggleV('pwCur',this)">👁️</button></div></div>
+    <div class="fgsm"><label>新しいパスワード</label>
+      <div class="pww"><input type="password" id="pwNew" placeholder="新しいパスワード（4文字以上）">
+      <button class="pwe" onclick="toggleV('pwNew',this)">👁️</button></div></div>
+    <div class="fgsm"><label>新しいパスワード（確認）</label>
+      <div class="pww"><input type="password" id="pwNew2" placeholder="もう一度入力">
+      <button class="pwe" onclick="toggleV('pwNew2',this)">👁️</button></div>
+      <div class="ferr" id="pwErr"></div></div>
+    <div class="ma">
+      <button class="bno" onclick="closePwChange()">キャンセル</button>
+      <button class="bok" onclick="doChangePw()">変更する</button>
+    </div>
+  </div>
+</div>
+
+<!-- IMPORT MODAL -->
+<div class="iov" id="impOv" onclick="if(event.target===this)closeImport()">
+  <div class="icard">
+    <h2>📥 Q&amp;A 取込（JSON）</h2>
+    <p>エクスポートしたJSONを貼り付けてください。<br>
+    <strong>※ 既存データへの追加（上書きなし）。取込後は「保存して出力」を必ず実行してください。</strong></p>
+    <textarea id="impText" placeholder="[{&quot;category&quot;:&quot;土木&quot;,&quot;question&quot;:&quot;…&quot;,&quot;answer&quot;:&quot;…&quot;,&quot;date&quot;:&quot;&quot;}]"></textarea>
+    <div class="ma" style="margin-top:16px">
+      <button class="bno" onclick="closeImport()">キャンセル</button>
+      <button class="bok" onclick="doImport()">取り込む</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════
+//  設定
+// ══════════════════════════════════════
+const PW_KEY     = 'hojun_faq_pw';
+const DEFAULT_PW = 'hojun1234';
+
+const CATS  = ['全て','土木','鋳物','化学','化粧品','環境','猫砂','雑'];
+const EMOJI = {'全て':'📋','土木':'🏗️','鋳物':'⚙️','化学':'🧪','化粧品':'💄','環境':'🌿','猫砂':'🐱','雑':'📁'};
+
+// ── パスワード ──
+function getPw()    { return localStorage.getItem(PW_KEY) || btoa(DEFAULT_PW); }
+function checkPw(v) { return btoa(v) === getPw(); }
+function storePw(v) { localStorage.setItem(PW_KEY, btoa(v)); }
+
+// ── 認証状態（セッション内のみ） ──
+let isAdmin = false;
+let loginCb = null;
+
+function setAdmin(val) {
+  isAdmin = val;
+  const badge = document.getElementById('adminBadge');
+  const saveB = document.getElementById('saveBtn');
+  const impB  = document.getElementById('importBtn');
+  const fab   = document.getElementById('fab');
+  const lBtn  = document.getElementById('loginBtn');
+  if (val) {
+    badge.style.display = 'inline-block';
+    saveB.style.display = 'inline-block';
+    impB.style.display  = 'inline-block';
+    fab.style.display   = 'flex';
+    lBtn.textContent    = '🔓 ログアウト';
+    lBtn.classList.add('logout-btn');
+  } else {
+    badge.style.display = 'none';
+    saveB.style.display = 'none';
+    impB.style.display  = 'none';
+    fab.style.display   = 'none';
+    lBtn.textContent    = '🔐 ログイン';
+    lBtn.classList.remove('logout-btn');
+  }
+  render();
+}
+
+function handleLoginBtn() {
+  if (isAdmin) { if(confirm('ログアウトしますか？')) setAdmin(false); }
+  else openLogin();
+}
+
+// ── ログイン ──
+function openLogin(cb) {
+  loginCb = cb || null;
+  document.getElementById('loginPw').value = '';
+  document.getElementById('loginErr').style.display = 'none';
+  document.getElementById('loginCov').classList.add('show');
+  setTimeout(()=>document.getElementById('loginPw').focus(), 120);
+}
+function closeLogin() { document.getElementById('loginCov').classList.remove('show'); }
+function doLogin() {
+  const pw = document.getElementById('loginPw').value;
+  if (checkPw(pw)) {
+    setAdmin(true); closeLogin();
+    if (loginCb) { loginCb(); loginCb = null; }
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+    document.getElementById('loginPw').value = '';
+    document.getElementById('loginPw').focus();
+  }
+}
+
+// ── パスワード変更 ──
+function openPwChange() {
+  ['pwCur','pwNew','pwNew2'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('pwErr').style.display = 'none';
+  document.getElementById('pwCov').classList.add('show');
+}
+function closePwChange() { document.getElementById('pwCov').classList.remove('show'); }
+function doChangePw() {
+  const cur = document.getElementById('pwCur').value;
+  const nw  = document.getElementById('pwNew').value;
+  const nw2 = document.getElementById('pwNew2').value;
+  const err = document.getElementById('pwErr');
+  if (!checkPw(cur)) { err.textContent='現在のパスワードが違います'; err.style.display='block'; return; }
+  if (nw.length < 4) { err.textContent='4文字以上にしてください'; err.style.display='block'; return; }
+  if (nw !== nw2)    { err.textContent='パスワードが一致しません'; err.style.display='block'; return; }
+  storePw(nw); closePwChange();
+  alert('✅ パスワードを変更しました。');
+}
+function toggleV(id, btn) {
+  const el = document.getElementById(id);
+  el.type = el.type==='password' ? 'text' : 'password';
+  btn.textContent = el.type==='password' ? '👁️' : '🙈';
+}
+
+// ══════════════════════════════════════
+//  DATA（HTMLに埋め込み）
+// ══════════════════════════════════════
+function loadData() {
+  try {
+    const el = document.getElementById('faq-data');
+    return JSON.parse(el.textContent);
+  } catch(e) { return []; }
+}
+
+let allData = loadData();
+let editingId = null;
+let activeCat = '全て';
+
+// ══════════════════════════════════════
+//  RENDER
+// ══════════════════════════════════════
+function render() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  // タブ
+  document.getElementById('tabs').innerHTML = CATS.map(cat => {
+    const n = cat==='全て' ? allData.length : allData.filter(d=>d.category===cat).length;
+    return `<button class="tab${activeCat===cat?' active':''}" onclick="setCat('${cat}')">
+      ${EMOJI[cat]} ${cat}<span class="tab-b">${n}</span></button>`;
+  }).join('');
+
+  // フィルタ
+  let data = allData;
+  if (activeCat !== '全て') data = data.filter(d=>d.category===activeCat);
+  if (q) data = data.filter(d=>d.question.toLowerCase().includes(q)||d.answer.toLowerCase().includes(q));
+  data = [...data].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+
+  document.getElementById('ri').textContent =
+    q ? `「${q}」の検索結果：${data.length} 件` : `${data.length} 件`;
+
+  const list = document.getElementById('ql');
+  if (!data.length) {
+    list.innerHTML = `<div class="empty"><div class="ei">🔍</div><p>該当するQ&Aが見つかりませんでした</p></div>`;
+    return;
+  }
+  list.innerHTML = data.map(d => {
+    const qT = q ? hl(esc(d.question),q) : esc(d.question);
+    const aT = q ? hl(esc(d.answer),q)   : esc(d.answer);
+    const eb = isAdmin ? `<button class="smbtn" onclick="openEdit('${d.id}')">✏️ 編集</button>` : '';
+    const db = isAdmin ? `<button class="smbtn del" onclick="doDel('${d.id}')">🗑️ 削除</button>` : '';
+    return `<div class="qa" id="c${d.id}">
+      <div class="qa-h" onclick="tog('${d.id}')">
+        <span class="qa-cb cat-${d.category}">${EMOJI[d.category]} ${d.category}</span>
+        <span class="qa-q">Q. ${qT}</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">${aT}</div>
+        <div class="qa-meta">
+          <span class="qa-dt">${d.date||'日付未設定'}</span>
+          <div class="qa-ac">${eb}${db}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function tog(id)  { document.getElementById('c'+id).classList.toggle('open'); }
+function setCat(c){ activeCat=c; render(); }
+function esc(s)   { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function hl(t,q)  { return t.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<mark>${m}</mark>`); }
+function uid()    { return Date.now().toString(36)+Math.random().toString(36).substr(2,5); }
+
+// ══════════════════════════════════════
+//  CRUD（管理者専用）
+// ══════════════════════════════════════
+function needAdmin(fn) { isAdmin ? fn() : openLogin(fn); }
+
+function openAdd() {
+  needAdmin(()=>{
+    editingId = null;
+    document.getElementById('editTitle').textContent = '📝 Q&A を追加';
+    document.getElementById('fCat').value = activeCat!=='全て' ? activeCat : '土木';
+    document.getElementById('fQ').value = '';
+    document.getElementById('fA').value = '';
+    document.getElementById('fD').value = new Date().toISOString().slice(0,10);
+    document.getElementById('editOv').classList.add('show');
+  });
+}
+function openEdit(id) {
+  needAdmin(()=>{
+    editingId = id;
+    const e = allData.find(d=>d.id===id);
+    document.getElementById('editTitle').textContent = '✏️ Q&A を編集';
+    document.getElementById('fCat').value = e.category;
+    document.getElementById('fQ').value   = e.question;
+    document.getElementById('fA').value   = e.answer;
+    document.getElementById('fD').value   = e.date||'';
+    document.getElementById('editOv').classList.add('show');
+  });
+}
+function closeEdit() { document.getElementById('editOv').classList.remove('show'); }
+
+function saveEntry() {
+  const cat = document.getElementById('fCat').value;
+  const q   = document.getElementById('fQ').value.trim();
+  const a   = document.getElementById('fA').value.trim();
+  const d   = document.getElementById('fD').value;
+  if (!q||!a) { alert('質問と回答は必須です。'); return; }
+  if (editingId) {
+    const i = allData.findIndex(x=>x.id===editingId);
+    allData[i] = {...allData[i], category:cat, question:q, answer:a, date:d};
+  } else {
+    allData.push({id:uid(), category:cat, question:q, answer:a, date:d});
+  }
+  closeEdit(); render();
+  flashSaveHint();
+}
+
+function doDel(id) {
+  needAdmin(()=>{
+    if(!confirm('このQ&Aを削除してもよいですか？')) return;
+    allData = allData.filter(x=>x.id!==id);
+    render(); flashSaveHint();
+  });
+}
+
+// ── 未保存の変更をヒント表示 ──
+function flashSaveHint() {
+  document.getElementById('saveBtn').style.animation = 'none';
+  document.getElementById('saveBtn').style.boxShadow = '0 0 0 3px rgba(80,200,120,0.6)';
+  setTimeout(()=>{ document.getElementById('saveBtn').style.boxShadow = ''; }, 2000);
+}
+
+// ══════════════════════════════════════
+//  保存して出力（共有フォルダ用）
+// ══════════════════════════════════════
+function saveAndExport() {
+  needAdmin(()=>{
+    // faq-data タグの内容を現在のデータで更新してからouterHTMLを取得
+    document.getElementById('faq-data').textContent =
+      '\n' + JSON.stringify(allData, null, 2) + '\n';
+
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+    const a    = document.createElement('a');
+    a.href     = URL.createObjectURL(blob);
+    a.download = 'hojun_faq_wiki.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+
+    // トースト表示
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 4000);
+  });
+}
+
+// ══════════════════════════════════════
+//  IMPORT
+// ══════════════════════════════════════
+function openImport() {
+  needAdmin(()=>{
+    document.getElementById('impText').value = '';
+    document.getElementById('impOv').classList.add('show');
+  });
+}
+function closeImport() { document.getElementById('impOv').classList.remove('show'); }
+function doImport() {
+  const raw = document.getElementById('impText').value.trim();
+  let imp;
+  try { imp=JSON.parse(raw); if(!Array.isArray(imp)) throw 0; }
+  catch(e) { alert('JSONの形式が正しくありません'); return; }
+  const ids = new Set(allData.map(d=>d.id));
+  let added = 0;
+  imp.forEach(item=>{
+    if(!item.category||!item.question||!item.answer) return;
+    const ni = {id:item.id&&!ids.has(item.id)?item.id:uid(),
+                category:item.category, question:item.question,
+                answer:item.answer, date:item.date||''};
+    allData.push(ni); ids.add(ni.id); added++;
+  });
+  closeImport(); render(); flashSaveHint();
+  alert(`${added}件を取り込みました。\n「💾 保存して出力」を押してファイルを更新してください。`);
+}
+
+// ── INIT ──
+render();
+</script>
+
+
+</body></html>
