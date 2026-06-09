@@ -293,7 +293,8 @@
 
   /* TABS */
   .tw{background:var(--surface);border-bottom:1px solid var(--border);
-    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    position:sticky;top:0;z-index:99;}
   .tw::-webkit-scrollbar{display:none;}
   .tabs{display:flex;padding:0 8px;min-width:max-content;gap:2px;}
   .tab{border:none;background:none;padding:12px 14px;font-size:13px;font-family:inherit;
@@ -1328,6 +1329,15 @@ function doImport() {
 
 // ── INIT ──
 render();
+
+// タブをヘッダーの直下にstickyさせる
+(function() {
+  var hd = document.querySelector('.hd');
+  var tw = document.querySelector('.tw');
+  function syncTop() { tw.style.top = hd.offsetHeight + 'px'; }
+  syncTop();
+  window.addEventListener('resize', syncTop);
+})();
 </script>
 
 
