@@ -4,6 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>株式会社ホージュン 社内FAQ Wiki</title>
 
+<!-- パスワードハッシュ（「保存して出力」のたびに自動更新） -->
+<script type="application/json" id="pw-data">"aG9qdW4xMjM0"</script>
+
 <!-- ═══════════════════════════════════════
      FAQ データ（ここを直接編集しないこと）
      管理者ログイン後「保存して出力」で更新してください
@@ -1062,16 +1065,24 @@ Caは層間イオンとして存在するものだけでなく、Calcite（CaCO3
 // ══════════════════════════════════════
 //  設定
 // ══════════════════════════════════════
-const PW_KEY     = 'hojun_faq_pw';
 const DEFAULT_PW = 'hojun1234';
 
 const CATS  = ['全て','土木','鋳物','化学','化粧品','環境','猫砂','雑'];
 const EMOJI = {'全て':'📋','土木':'🏗️','鋳物':'⚙️','化学':'🧪','化粧品':'💄','環境':'🌿','猫砂':'🐱','雑':'📁'};
 
-// ── パスワード ──
-function getPw()    { return localStorage.getItem(PW_KEY) || btoa(DEFAULT_PW); }
+// ── パスワード（HTMLの pw-data タグで管理。保存して出力で全員に反映） ──
+function getPw() {
+  try {
+    var el = document.getElementById('pw-data');
+    return el ? JSON.parse(el.textContent) : btoa(DEFAULT_PW);
+  } catch(e) { return btoa(DEFAULT_PW); }
+}
 function checkPw(v) { return btoa(v) === getPw(); }
-function storePw(v) { localStorage.setItem(PW_KEY, btoa(v)); }
+function storePw(v) {
+  try {
+    document.getElementById('pw-data').textContent = JSON.stringify(btoa(v));
+  } catch(e) { console.error('storePw failed:', e); }
+}
 
 // ── 認証状態（セッション内のみ） ──
 let isAdmin = false;
