@@ -5,7 +5,7 @@
 <title>株式会社ホージュン 社内FAQ Wiki</title>
 
 <!-- パスワードハッシュ（「保存して出力」のたびに自動更新） -->
-<script type="application/json" id="pw-data">"aG9qdW4xMjM0"</script>
+<script type="application/json" id="pw-data">"N2IlZzhhejQxJg=="</script>
 
 <!-- ═══════════════════════════════════════
      FAQ データ（ここを直接編集しないこと）
@@ -443,9 +443,54 @@
   ::-webkit-scrollbar{width:4px;}
   ::-webkit-scrollbar-track{background:transparent;}
   ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
+  /* ── メディア表示 ── */
+  .qa-media{margin-top:10px;}
+  .qa-imgs{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .qa-imgs img{width:calc(50% - 4px);max-width:100%;border-radius:6px;
+    object-fit:cover;cursor:pointer;border:1px solid var(--border);
+    display:block;background:var(--surface2);}
+  @media(min-width:420px){.qa-imgs img{width:calc(33% - 6px);}}
+  .qa-vids{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+  .qa-vids video{width:100%;border-radius:6px;background:#000;display:block;}
+  .vid-err{font-size:12px;color:var(--red);padding:8px 12px;
+    background:var(--red-bg);border-radius:6px;margin-top:4px;}
+  .media-sep{font-size:11px;font-weight:600;color:var(--text3);
+    margin-top:8px;margin-bottom:2px;letter-spacing:.04em;}
+
+  /* ── ライトボックス ── */
+  .lbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);
+    z-index:600;align-items:center;justify-content:center;padding:16px;}
+  .lbox.show{display:flex;}
+  .lbox img{max-width:100%;max-height:90vh;border-radius:8px;object-fit:contain;}
+  .lbox-close{position:absolute;top:12px;right:16px;background:rgba(255,255,255,.18);
+    border:none;color:#fff;font-size:22px;border-radius:50%;width:40px;height:40px;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:601;}
+
+  /* ── 編集モーダル メディアUI ── */
+  .img-preview{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;min-height:4px;}
+  .img-preview-item{position:relative;width:76px;height:76px;}
+  .img-preview-item img{width:100%;height:100%;object-fit:cover;
+    border-radius:6px;border:1px solid var(--border);display:block;}
+  .img-del-btn{position:absolute;top:-7px;right:-7px;background:var(--red);
+    color:#fff;border:none;border-radius:50%;width:20px;height:20px;
+    font-size:12px;cursor:pointer;display:flex;align-items:center;
+    justify-content:center;line-height:1;padding:0;}
+  .media-file-label{display:inline-block;margin-top:8px;background:var(--surface2);
+    border:1.5px solid var(--border);border-radius:8px;padding:8px 14px;
+    font-size:13px;cursor:pointer;color:var(--text2);}
+  .vid-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+  .vid-item{display:flex;align-items:center;gap:8px;background:var(--surface2);
+    border-radius:6px;padding:6px 10px;font-size:13px;}
+  .vid-item span{flex:1;word-break:break-all;}
+  .vid-add-row{display:flex;gap:8px;margin-top:8px;}
+  .vid-add-row input{flex:1;}
+  .vid-add-btn{flex-shrink:0;background:var(--accent);color:#fff;border:none;
+    border-radius:8px;padding:9px 14px;font-size:13px;cursor:pointer;
+    font-family:inherit;white-space:nowrap;}
 </style>
 </head>
-<body>
+<body class="">
 
 <!-- HEADER -->
 <div class="hd">
@@ -455,10 +500,10 @@
       <h1>お問い合わせ FAQ<small>株式会社ホージュン 社内Wiki</small></h1>
     </div>
     <div class="hd-act">
-      <span class="admin-badge" id="adminBadge" style="display: inline-block;">🔓 管理者</span>
-      <button class="ibtn save-btn" id="saveBtn" onclick="saveAndExport()" style="display: inline-block; animation: auto ease 0s 1 normal none running none;">💾 保存して出力</button>
-      <button class="ibtn" id="importBtn" onclick="openImport()" style="display: inline-block;">📥 Q&amp;A取込</button>
-      <button class="ibtn logout-btn" id="loginBtn" onclick="handleLoginBtn()">🔓 ログアウト</button>
+      <span class="admin-badge" id="adminBadge" style="">🔓 管理者</span>
+      <button class="ibtn save-btn" id="saveBtn" onclick="saveAndExport()" style="animation: auto ease 0s 1 normal none running none;">💾 保存して出力</button>
+      <button class="ibtn" id="importBtn" onclick="openImport()" style="">📥 Q&amp;A取込</button>
+      <button class="ibtn" id="loginBtn" onclick="handleLoginBtn()">🔐 ログイン</button>
     </div>
   </div>
   <div class="sw">
@@ -468,8 +513,8 @@
 </div>
 
 <!-- TABS -->
-<div class="tw"><div class="tabs" id="tabs"><button class="tab" onclick="setCat('全て')">
-      📋 全て<span class="tab-b">33</span></button><button class="tab active" onclick="setCat('土木')">
+<div class="tw" style="top: 134px;"><div class="tabs" id="tabs"><button class="tab active" onclick="setCat('全て')">
+      📋 全て<span class="tab-b">33</span></button><button class="tab" onclick="setCat('土木')">
       🏗️ 土木<span class="tab-b">24</span></button><button class="tab" onclick="setCat('鋳物')">
       ⚙️ 鋳物<span class="tab-b">0</span></button><button class="tab" onclick="setCat('化学')">
       🧪 化学<span class="tab-b">9</span></button><button class="tab" onclick="setCat('化粧品')">
@@ -480,8 +525,168 @@
 
 <!-- MAIN -->
 <div class="main">
-  <div class="ri" id="ri">24 件</div>
-  <div class="ql" id="ql"><div class="qa" id="cmq4l9q2jgszlo">
+  <div class="ri" id="ri">33 件</div>
+  <div class="ql" id="ql"><div class="qa" id="cxl000">
+      <div class="qa-h" onclick="tog('xl000')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. ベンゲルSH
+御社にて登録される場合、別途デンソー様IDをご連絡いたしますのでその旨ご返信ください。
+弊社にて登録する場合、成分がわかる資料(CAS番号含む)のご提示お願いいたします。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">早速ですがお問い合わせいただきましたベンゲルSHについて
+　・ベントナイト　　　　　CAS.No.1302-78-9
+　・シランカップリング剤　CAS.No.3069-19-0
+の複合物となります。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-05-15</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl000')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl000')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl001">
+      <div class="qa-h" onclick="tog('xl001')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. ベンゲルネクストSSのアレルゲン情報</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">精製ベントナイトは鉱物由来100%のためアレルゲンを含みません。
+※証明書は別途発送可能</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-05-08</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl001')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl001')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl002">
+      <div class="qa-h" onclick="tog('xl002')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. エスベンW、WVに関する情報
+
+1.REACH
+
+2.**「Definition and Index for Natural and Organic Cosmetic Ingredients based on ISO16128」*
+
+3.PFAS statement</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">1.精製・有機ベントナイトともにREACHは取得していない。
+
+2.自然指数、自然由来指数は既に資料作成済み
+
+3.PFAS関連は意図的使用はありません</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-05-01</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl002')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl002')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl005">
+      <div class="qa-h" onclick="tog('xl005')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. ・商品中に含まれる①鉄、②銅の濃度についてのデータ、情報をいただきたい。
+・（最大でもこの程度濃度という濃度数値がわかればありがたいです。）
+・もし、濃度について情報をお持ちでない場合は、商品の製造中に鉄、銅濃度が 高くなる可能性がある工程が存在するかを教えていただきたい。
+本件、商品に問題があってのお問合せではなく、岡山ワイナリーにてワイン中に 鉄、銅がどれくらい移行する可能性があるかを調査するための要請と聞いており ます。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">&gt; 商品中に含まれる①鉄、②銅の濃度についてのデータ
+は測定しておらず、実測データは持合わせておりません。
+
+参考内容とすると、食添ではない外原規ベンゲル(製造工程は同様で評価項目が異なるもの)では、「重金属　≦50ppm(Pbとして)」があります。
+「Fe」、「Cu」ではなく、重金属として上限50ppmとの回答となります。
+
+&gt; 商品の製造中に鉄、銅濃度が高くなる可能性がある工程が存在するかを教えていただきたい。
+
+製品が接触するラインの金属系材質は全てステンレス(SUS304)としております。
+ステンレスからのFe・Cu(銅は考えにくいのですが)の溶出は想定しておりませんが、お問い合わせの「鉄、銅濃度が高くなる可能性がある工程」とするとステンレス(SUS304)からの溶出量が可能性として考えられます。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-04-08</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl005')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl005')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl006">
+      <div class="qa-h" onclick="tog('xl006')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. 現在、御社のベントナイトの赤城を粘土成形の補助剤として使用させていただい ております。
+
+当社では今、白い原料で製品試作を進めております。
+
+つきましては、御社のお取り扱いしている製品で粘土の補助剤として使用可能な ベントナイトで白色のものはございますか？
+
+また、該当する製品のサンプルをいただく事は可能でしょうか？</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">白色度の高い製品としては
+BGB11KとBG-FW、BGN-LUになります。
+あとは価格ではないかと思います。
+
+工業用出の白色度は期待できませんが、赤城(群馬産)以外であれば
+ネオクレイかスーパークレイになるかと思います。
+
+「粘土成形の補助剤」として適切かは分かりませんが、これらの中から
+用途・価格で見合うものではないかと思います。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-03-25</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl006')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl006')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl007">
+      <div class="qa-h" onclick="tog('xl007')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. 【お問い合わせ内容】
+
+ベントナイトで、粒径が50～100nm（湿式）くらいのものはあるでしょうか。
+
+ホージュンさんのホームページでは、粒径がわからなかったとの事です。
+
+ちなみに、化粧品ではないので、グレードは何でもよいです（化粧品用でも工業 用でもかまいません）。
+
+【用途】医療用模型を作成する材料の一つになります。（あくまで模型なので、 人体に使われることはありません）</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">問合せの件ですが、湿式で「50～100nmだけ」のものはありません。
+このため、要求事項が「50～100nmだけ」となると、提供製品はありません。
+
+しかし、「50～100nmも含む」であれば、以下の背景からベンゲルを紹介できるかと思います。
+
+精製ベントナイトでは2μm以下の分級条件で、実際には4μm(4000nm)以下の粒子
+を回収しています。回収粒子は「以下」なので50～100nmの粒子も含みます。
+回収条件はどの製品も同じですが粘性の低い製品の方がやや小さな粒径を回収しているかもしれません(ストークス式の粘性ファクターから)。
+
+ですので、ベンゲルでよいかと思いますがいかがでしょうか。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-03-18</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl007')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl007')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl008">
+      <div class="qa-h" onclick="tog('xl008')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. 本件、KALIN様の顧客からS-BEN WVに関する“non-nano”および“vegan”関連の
+
+証明書・書類のご提出を依頼されました。
+
+これらの書類のご提供にご協力いただけますでしょうか。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">2024.10.25にKALIN様からひな形をいただき、添付のWordファイル(20241025_S-BEN_WV_Vegan Declaration.docx)を作成・提出しております。
+本内容でよろしければそのまま回答書として使用可能です。
+
+ナノマテリアルについて
+ナノマテリアルについては各国の見解があります。国内でも厚労省、経産省、環境省では解釈によって異なる事案です(古い資料ですが各国の見解についての資料をPDFにて添付いたします)。
+それに対し、当社ではナノマテリアル規格認証委員会(産総研)に所属し、精製・有機ベントナイトを「ナノクレイ」として製品登録を行う動きもしていることから、リスク側回答書として「ナノマテリアルに相当」の回答書をもちいております。
+使用国によっては異なりますので、代理店の調査結果による希望回答書の提供も可能です。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">2026-03-17</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl008')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl008')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmq4l9q2jgszlo">
       <div class="qa-h" onclick="tog('mq4l9q2jgszlo')">
         <span class="qa-cb cat-土木">🏗️ 土木</span>
         <span class="qa-q">Q. ベントナイトはCa型、Na型があるようですが、他イオン(例えばKイオン)にカチオンを置換できますか。
@@ -976,14 +1181,65 @@ Caは層間イオンとして存在するものだけでなく、Calcite（CaCO3
           <div class="qa-ac"><button class="smbtn" onclick="openEdit('mpqfkfzklw1fg')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mpqfkfzklw1fg')">🗑️ 削除</button></div>
         </div>
       </div>
+    </div><div class="qa" id="cxl003">
+      <div class="qa-h" onclick="tog('xl003')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. HSコードは</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">有機ベントナイト：3824.90-900(2016ごろまで)
+ 　　→2018.4Ver　3824.99-090
+ 　　→2022より 　3402.90.000
+
+精製ベントナイト：2508.10-000
+     →2022.12Ver 2508.10.000(変更なし)
+　  　ベンゲルSH
+  　 　　　→　　　　3824.99　(2023.11.27山田さんと相談　ソーダ灰処理品と同じ
+　　　　　　　　　　　　　　シランカップリング剤がゴムの活性処理剤として
+　　　　　　　　　　　　　　使用されていることを参考。末尾3桁は不明(末尾3桁
+　　　　　　　　　　　　　　は国ごとに違うとのこと))
+工業用ベントナイト
+　　 →2018.4ver：2508.10-000</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl003')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl003')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cxl004">
+      <div class="qa-h" onclick="tog('xl004')">
+        <span class="qa-cb cat-化学">🧪 化学</span>
+        <span class="qa-q">Q. 有機ベントナイトにおける化審法とCAS.No.の相違について</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-ans">【化審法】
+日本国内(経済産業省)では、有機ベントナイトは化合物とは認めず、混合物の扱いとなる。
+これにより有機ベントナイトは、天然鉱物と、修飾剤の2つを記載する義務があります。
+しかしながら化審法において、天然物は対象外であることから、修飾剤のみの記述となるため、化審法では有機ベントナイトが修飾剤と同じ記載となります。
+
+【CAS.No.】
+CAS.No.は、アメリカで「有機ベントナイト」として登録されているため、有機ベントナイトの
+CAS.No.で記載しております。</div>
+        <div class="qa-meta">
+          <span class="qa-dt">日付未設定</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('xl004')">✏️ 編集</button><button class="smbtn del" onclick="doDel('xl004')">🗑️ 削除</button></div>
+        </div>
+      </div>
     </div></div>
 </div>
 
 <!-- FAB -->
-<button class="fab" id="fab" onclick="openAdd()" title="新規追加" style="display: flex;">＋</button>
+<button class="fab" id="fab" onclick="openAdd()" title="新規追加" style="">＋</button>
 
 <!-- トースト -->
 <div class="toast" id="toast">✅ HTMLを出力しました。共有フォルダのファイルを上書きしてください。</div>
+
+<!-- LIGHTBOX -->
+<div class="lbox" id="lbox" onclick="if(event.target===this||event.target.id==='lbox')closeLightbox()">
+  <button class="lbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lboxImg" src="" alt="拡大表示">
+</div>
 
 <!-- ADD/EDIT MODAL -->
 <div class="ov" id="editOv" onclick="if(event.target===this)closeEdit()">
@@ -999,6 +1255,40 @@ Caは層間イオンとして存在するものだけでなく、Calcite（CaCO3
     <div class="fg"><label>質問</label><textarea id="fQ" rows="3" placeholder="質問内容…"></textarea></div>
     <div class="fg"><label>回答</label><textarea id="fA" rows="6" placeholder="回答内容…"></textarea></div>
     <div class="fg"><label>登録日（省略可）</label><input type="date" id="fD"></div>
+
+    <!-- 質問の画像 -->
+    <div class="fg"><label>質問の画像</label>
+      <div id="qImgPreview" class="img-preview"></div>
+      <label class="media-file-label">
+        📷 画像を追加
+        <input type="file" accept="image/*" multiple style="display:none" onchange="addImages('q',this.files);this.value=''">
+      </label>
+    </div>
+    <!-- 回答の画像 -->
+    <div class="fg"><label>回答の画像</label>
+      <div id="aImgPreview" class="img-preview"></div>
+      <label class="media-file-label">
+        📷 画像を追加
+        <input type="file" accept="image/*" multiple style="display:none" onchange="addImages('a',this.files);this.value=''">
+      </label>
+    </div>
+    <!-- 質問の動画 -->
+    <div class="fg"><label>質問の動画ファイル名（mediaフォルダ内）</label>
+      <div id="qVidList" class="vid-list"></div>
+      <div class="vid-add-row">
+        <input type="text" id="qVidInput" placeholder="例: doboku_001.mp4">
+        <button class="vid-add-btn" onclick="addVideo('q')">＋ 追加</button>
+      </div>
+    </div>
+    <!-- 回答の動画 -->
+    <div class="fg"><label>回答の動画ファイル名（mediaフォルダ内）</label>
+      <div id="aVidList" class="vid-list"></div>
+      <div class="vid-add-row">
+        <input type="text" id="aVidInput" placeholder="例: doboku_001.mp4">
+        <button class="vid-add-btn" onclick="addVideo('a')">＋ 追加</button>
+      </div>
+    </div>
+
     <div class="ma">
       <button class="bno" onclick="closeEdit()">キャンセル</button>
       <button class="bok" onclick="saveEntry()">保存する</button>
@@ -1034,12 +1324,12 @@ Caは層間イオンとして存在するものだけでなく、Calcite（CaCO3
       <div class="pww"><input type="password" id="pwCur" placeholder="現在のパスワード">
       <button class="pwe" onclick="toggleV('pwCur',this)">👁️</button></div></div>
     <div class="fgsm"><label>新しいパスワード</label>
-      <div class="pww"><input type="password" id="pwNew" placeholder="新しいパスワード（4文字以上）">
-      <button class="pwe" onclick="toggleV('pwNew',this)">👁️</button></div></div>
+      <div class="pww"><input type="text" id="pwNew" placeholder="新しいパスワード（4文字以上）">
+      <button class="pwe" onclick="toggleV('pwNew',this)">🙈</button></div></div>
     <div class="fgsm"><label>新しいパスワード（確認）</label>
       <div class="pww"><input type="password" id="pwNew2" placeholder="もう一度入力">
       <button class="pwe" onclick="toggleV('pwNew2',this)">👁️</button></div>
-      <div class="ferr" id="pwErr"></div></div>
+      <div class="ferr" id="pwErr" style="display: none;"></div></div>
     <div class="ma">
       <button class="bno" onclick="closePwChange()">キャンセル</button>
       <button class="bok" onclick="doChangePw()">変更する</button>
@@ -1087,6 +1377,9 @@ function storePw(v) {
 // ── 認証状態（セッション内のみ） ──
 let isAdmin = false;
 let loginCb = null;
+
+// ── 編集中メディア（モーダル内の一時状態） ──
+let editQImages = [], editAImages = [], editQVideos = [], editAVideos = [];
 
 function setAdminMode(val) {
   isAdmin = val;
@@ -1197,6 +1490,12 @@ function render() {
     const aT = q ? hl(esc(d.answer),q)   : esc(d.answer);
     const eb = `<button class="smbtn" onclick="openEdit('${d.id}')">✏️ 編集</button>`;
     const db = `<button class="smbtn del" onclick="doDel('${d.id}')">🗑️ 削除</button>`;
+    const qImgH = renderImgs(d.qImages);
+    const aImgH = renderImgs(d.aImages);
+    const qVidH = renderVids(d.qVideos);
+    const aVidH = renderVids(d.aVideos);
+    const qMediaH = (qImgH || qVidH) ? `<div class="qa-media">${qImgH}${qVidH}</div>` : '';
+    const aMediaH = (aImgH || aVidH) ? `<div class="qa-media">${aImgH}${aVidH}</div>` : '';
     return `<div class="qa" id="c${d.id}">
       <div class="qa-h" onclick="tog('${d.id}')">
         <span class="qa-cb cat-${d.category}">${EMOJI[d.category]} ${d.category}</span>
@@ -1204,7 +1503,9 @@ function render() {
         <span class="qa-ar">▶</span>
       </div>
       <div class="qa-body">
+        ${qMediaH}
         <div class="qa-ans">${aT}</div>
+        ${aMediaH}
         <div class="qa-meta">
           <span class="qa-dt">${d.date||'日付未設定'}</span>
           <div class="qa-ac">${eb}${db}</div>
@@ -1221,6 +1522,100 @@ function hl(t,q)  { return t.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,
 function uid()    { return Date.now().toString(36)+Math.random().toString(36).substr(2,5); }
 
 // ══════════════════════════════════════
+//  メディア 表示ヘルパー
+// ══════════════════════════════════════
+function renderImgs(imgs) {
+  if (!imgs || !imgs.length) return '';
+  return '<div class="qa-imgs">' + imgs.map(function(src) {
+    return '<img src="' + src + '" loading="lazy" alt="添付画像" onclick="event.stopPropagation();openLightbox(this.src)">';
+  }).join('') + '</div>';
+}
+function renderVids(vids) {
+  if (!vids || !vids.length) return '';
+  return '<div class="qa-vids">' + vids.map(function(fn) {
+    var s = fn.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+    return '<video controls preload="none" data-fn="' + s + '"' +
+      ' onerror="var d=document.createElement(\'div\');d.className=\'vid-err\';' +
+      'd.textContent=\'⚠️ 動画が見つかりません: \'+this.dataset.fn;this.replaceWith(d)">' +
+      '<source src="media/' + s + '" type="video/mp4">' +
+      '<source src="media/' + s + '">' +
+      '</video>';
+  }).join('') + '</div>';
+}
+
+// ── ライトボックス ──
+function openLightbox(src) {
+  document.getElementById('lboxImg').src = src;
+  document.getElementById('lbox').classList.add('show');
+}
+function closeLightbox() {
+  document.getElementById('lbox').classList.remove('show');
+  document.getElementById('lboxImg').src = '';
+}
+
+// ══════════════════════════════════════
+//  編集モーダル メディア管理
+// ══════════════════════════════════════
+function compressImage(file, cb) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = new Image();
+    img.onload = function() {
+      var MAX = 1200;
+      var scale = Math.min(1, MAX / Math.max(img.width, img.height));
+      var cv = document.createElement('canvas');
+      cv.width = Math.round(img.width * scale);
+      cv.height = Math.round(img.height * scale);
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      cb(cv.toDataURL('image/jpeg', 0.75));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function addImages(type, files) {
+  var arr = type === 'q' ? editQImages : editAImages;
+  Array.from(files).forEach(function(file) {
+    compressImage(file, function(dataUrl) { arr.push(dataUrl); renderImgPreview(type); });
+  });
+}
+function removeImage(type, idx) {
+  if (type === 'q') editQImages.splice(idx, 1); else editAImages.splice(idx, 1);
+  renderImgPreview(type);
+}
+function renderImgPreview(type) {
+  var arr = type === 'q' ? editQImages : editAImages;
+  var el = document.getElementById(type + 'ImgPreview');
+  if (!el) return;
+  el.innerHTML = arr.map(function(src, i) {
+    return '<div class="img-preview-item"><img src="' + src + '" alt="">' +
+      '<button class="img-del-btn" onclick="removeImage(\'' + type + '\',' + i + ')">✕</button></div>';
+  }).join('');
+}
+function addVideo(type) {
+  var inputId = type + 'VidInput';
+  var val = document.getElementById(inputId).value.trim();
+  if (!val) return;
+  if (type === 'q') editQVideos.push(val); else editAVideos.push(val);
+  document.getElementById(inputId).value = '';
+  renderVidList(type);
+}
+function removeVideo(type, idx) {
+  if (type === 'q') editQVideos.splice(idx, 1); else editAVideos.splice(idx, 1);
+  renderVidList(type);
+}
+function renderVidList(type) {
+  var arr = type === 'q' ? editQVideos : editAVideos;
+  var el = document.getElementById(type + 'VidList');
+  if (!el) return;
+  el.innerHTML = arr.map(function(fn, i) {
+    var s = fn.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    return '<div class="vid-item"><span>📹 ' + s + '</span>' +
+      '<button class="smbtn del" onclick="removeVideo(\'' + type + '\',' + i + ')">🗑️</button></div>';
+  }).join('');
+}
+
+// ══════════════════════════════════════
 //  CRUD（管理者専用）
 // ══════════════════════════════════════
 function needAdmin(fn) { isAdmin ? fn() : openLogin(fn); }
@@ -1228,11 +1623,14 @@ function needAdmin(fn) { isAdmin ? fn() : openLogin(fn); }
 function openAdd() {
   needAdmin(()=>{
     editingId = null;
+    editQImages=[]; editAImages=[]; editQVideos=[]; editAVideos=[];
     document.getElementById('editTitle').textContent = '📝 Q&A を追加';
     document.getElementById('fCat').value = activeCat!=='全て' ? activeCat : '土木';
     document.getElementById('fQ').value = '';
     document.getElementById('fA').value = '';
     document.getElementById('fD').value = new Date().toISOString().slice(0,10);
+    renderImgPreview('q'); renderImgPreview('a');
+    renderVidList('q'); renderVidList('a');
     document.getElementById('editOv').classList.add('show');
   });
 }
@@ -1240,11 +1638,17 @@ function openEdit(id) {
   needAdmin(()=>{
     editingId = id;
     const e = allData.find(d=>d.id===id);
+    editQImages = (e.qImages||[]).slice();
+    editAImages = (e.aImages||[]).slice();
+    editQVideos = (e.qVideos||[]).slice();
+    editAVideos = (e.aVideos||[]).slice();
     document.getElementById('editTitle').textContent = '✏️ Q&A を編集';
     document.getElementById('fCat').value = e.category;
     document.getElementById('fQ').value   = e.question;
     document.getElementById('fA').value   = e.answer;
     document.getElementById('fD').value   = e.date||'';
+    renderImgPreview('q'); renderImgPreview('a');
+    renderVidList('q'); renderVidList('a');
     document.getElementById('editOv').classList.add('show');
   });
 }
@@ -1258,9 +1662,19 @@ function saveEntry() {
   if (!q||!a) { alert('質問と回答は必須です。'); return; }
   if (editingId) {
     const i = allData.findIndex(x=>x.id===editingId);
-    allData[i] = {...allData[i], category:cat, question:q, answer:a, date:d};
+    const updated = {...allData[i], category:cat, question:q, answer:a, date:d};
+    editQImages.length ? (updated.qImages=editQImages.slice()) : delete updated.qImages;
+    editAImages.length ? (updated.aImages=editAImages.slice()) : delete updated.aImages;
+    editQVideos.length ? (updated.qVideos=editQVideos.slice()) : delete updated.qVideos;
+    editAVideos.length ? (updated.aVideos=editAVideos.slice()) : delete updated.aVideos;
+    allData[i] = updated;
   } else {
-    allData.push({id:uid(), category:cat, question:q, answer:a, date:d});
+    const entry = {id:uid(), category:cat, question:q, answer:a, date:d};
+    if (editQImages.length) entry.qImages = editQImages.slice();
+    if (editAImages.length) entry.aImages = editAImages.slice();
+    if (editQVideos.length) entry.qVideos = editQVideos.slice();
+    if (editAVideos.length) entry.aVideos = editAVideos.slice();
+    allData.push(entry);
   }
   closeEdit(); render();
   flashSaveHint();
