@@ -600,7 +600,7 @@
 <body class="">
 
 <!-- VIEWER GATE -->
-<div class="vw-gate" id="viewerGate">
+<div class="vw-gate" id="viewerGate" style="display: none;">
   <div class="card" style="max-width:360px;width:100%;">
     <div style="text-align:center;font-size:52px;margin-bottom:4px;">📋</div>
     <h2 style="text-align:center;">ホージュン FAQ</h2>
@@ -609,7 +609,7 @@
       <input type="password" id="viewerPw" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')doViewerLogin()">
       <button class="pwe" onclick="toggleV('viewerPw',this)">👁️</button>
     </div>
-    <div class="errmsg" id="viewerErr">パスワードが違います</div>
+    <div class="errmsg" id="viewerErr" style="display: none;">パスワードが違います</div>
     <button class="bok" style="width:100%;margin-top:16px;" onclick="doViewerLogin()">閲覧する</button>
   </div>
 </div>
