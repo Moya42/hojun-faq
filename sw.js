@@ -1,4 +1,4 @@
-const CACHE = 'hojun-faq-v1';
+const CACHE = 'hojun-faq-v2';
 const ASSETS = [
   './hojun_faq_wiki.html',
   './manifest.json',
