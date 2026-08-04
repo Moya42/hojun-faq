@@ -555,6 +555,7 @@
     display:block;background:var(--surface2);}
   @media(min-width:420px){.qa-imgs img{width:calc(33% - 6px);}}
   .qa-vids{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+  .qa-vids video{width:100%;border-radius:8px;background:#000;display:block;}
   .vid-link{display:flex;align-items:center;gap:10px;background:var(--surface2);
     border:1.5px solid var(--border);border-radius:8px;padding:12px 16px;
     font-size:14px;color:var(--accent);text-decoration:none;font-weight:600;
@@ -1610,9 +1611,9 @@ function renderVids(vids) {
   if (!vids || !vids.length) return '';
   return '<div class="qa-vids">' + vids.map(function(fn) {
     var s = fn.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
-    return '<a class="vid-link" href="media/' + s + '" target="_blank" rel="noopener">' +
-      '▶ 動画を再生　<span class="vid-link-name">' + s + '</span>' +
-      '</a>';
+    return '<video controls preload="metadata" src="media/' + s + '">' +
+      'お使いのブラウザは動画再生に対応していません。' +
+      '</video>';
   }).join('') + '</div>';
 }
 
