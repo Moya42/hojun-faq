@@ -1,4 +1,4 @@
-const CACHE = 'hojun-faq-v2';
+const CACHE = 'hojun-faq-v3';
 const ASSETS = [
   './hojun_faq_wiki.html',
   './manifest.json',
@@ -22,6 +22,12 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
+  var url = e.request.url;
+  // 動画ファイルは常にネットワークから取得（キャッシュしない）
+  if (url.indexOf('/media/') !== -1) {
+    e.respondWith(fetch(e.request));
+    return;
+  }
   e.respondWith(
     caches.match(e.request).then(function(cached) {
       return cached || fetch(e.request).catch(function() { return cached; });
