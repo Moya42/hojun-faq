@@ -1,0 +1,18 @@
+{
+  "name": "ホージュン FAQ",
+  "short_name": "FAQ",
+  "description": "株式会社ホージュン 社内FAQ",
+  "start_url": "./hojun_faq_wiki.html",
+  "display": "standalone",
+  "background_color": "#1A2E40",
+  "theme_color": "#1A2E40",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

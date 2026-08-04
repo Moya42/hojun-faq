@@ -3,9 +3,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>株式会社ホージュン 社内FAQ Wiki</title>
+<meta name="theme-color" content="#1A2E40">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ホージュンFAQ">
+<link rel="manifest" href="manifest.json">
 
 <!-- パスワードハッシュ（「保存して出力」のたびに自動更新） -->
 <script type="application/json" id="pw-data">"N2IlZzhhejQxJg=="</script>
+<!-- 閲覧パスワードハッシュ（管理者が「閲覧PW変更」で更新・「保存して出力」で反映） -->
+<script type="application/json" id="vw-data">"ZmFxMjAyNA=="</script>
 
 <!-- ═══════════════════════════════════════
      FAQ データ（ここを直接編集しないこと）
@@ -251,11 +259,88 @@
     "answer": "現品回収後に室内試験にて検証した結果、撹拌不足が影響していることが判明いたしました。\n切り替える前にご使用されていたクニゲルGSにつきましてもネオマッドと同様に攪拌不足の場合、強い凝集反応を示す結果となっております。",
     "date": "2026-06-17",
     "qVideos": [
-      "doboku_001"
+      "doboku_001.mov"
     ],
     "aVideos": [
-      "doboku_002"
+      "doboku_002.mp4"
     ]
+  },
+  {
+    "id": "mrv9es5c7yn8a",
+    "category": "鋳物",
+    "question": "砂かみ欠陥対策は？",
+    "answer": "砂かみ不良は、表面安定性を向上させる必要がある。表面安定性を向上させるためには、抗圧力をあげるか、CB-水分を上げる必要がある。\n①ベントナイト添加量を上げると、抗圧力、CB-水分も上がり効果はあるが、砂の崩壊性の悪化の懸念、水分過多によるガス欠陥の懸念があるため注意が必要。\n②①における懸念材料が考えられる場合、ベントナイトの粉物(澱粉、石炭粉、微粉等)を増やし、CB-水分を上げる＝表面安定性を上げる＝砂かみ対策とする。特に澱粉(α)は効果が見込める。この場合も、砂の崩壊性とガス欠陥に注意が必要。",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "mrva4bg1jnsls",
+    "category": "鋳物",
+    "question": "石炭粉の有効性は？",
+    "answer": "石炭粉は、基本、ガス欠陥対策として使用される。特に材質がFCDの場合は、LOIで３％程度の使用例が多い。これは、トヨタ様が実際に使用した際に効果があったとされており、何故収まるかは定かではない。また、材質がFCの場合は、石炭粉はNGとされているが、現在はFCとFCDの汎用ラインが多いため、３％弱での使用が多い。材質が鋳鋼でも使用はNGとされている。\nガス欠陥対策の他に、砂の崩壊性も良くすると言われている。\n使用量が多くなると、水分過多によるガス欠陥にも注意が必要。",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "mrvabf5bmsbha",
+    "category": "鋳物",
+    "question": "スクワレ欠陥対策は？",
+    "answer": "先ず、スクワレ欠陥が出ている箇所を聴取。製品の下型に出ていれば膨張系スクレ、上側に出ていればてらされ系スクワレと判断する。\n前者の場合は、珪砂の主成分であるQzの膨張によるものとされるため、\n①澱粉量を増やす(特にα)。\n②Qz分の低い珪砂(新砂及び中子の元砂)の使用に変更。\n③長い目で見て、オーリチックスを増やす。\n④充填密度を下げる(CB値を上げる、微粉等を増やす)ことにより膨張を防ぐ。\n\n後者の場合\n①水分凝縮層抗張力の強度不足となるため、ベントナイト添加量を上げる。\nにて対処する。",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "mrvan64s3lxsa",
+    "category": "鋳物",
+    "question": "焼き付き不良対策は？",
+    "answer": "砂自体の耐火度が低下することにより起こるが、\n①オーリチックスが上昇していないか？\n②新砂で使用されている珪砂の主成分であるQz分に変化(低下していないか)\n     がないか分析して調べる。\n③中子を使用していれば、その中子の元砂のQzに変化がないかを確認。\n④澱粉や微粉量が増えていないかを確認。\n耐火度を保つためには、Qz分が高い珪砂を使用するか、耐火度を低下させる要因となる物質が上昇していないかを確認が必要。",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "mrvaw76tfenkg",
+    "category": "鋳物",
+    "question": "ガス欠陥対策は？",
+    "answer": "水分過多か通気度が低いかになる。\n①水分過多となる要素があるかを確認。\n　ベントナイト以外の粉物が多い場合、そのものにより調整。\n②①のアクションにより通気度も上昇するはずなので、そちらも確認。\n③①、②のアクションが取りにくい場合は、石炭粉量を増やしてみる。",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "mrvbecfakznoz",
+    "category": "鋳物",
+    "question": "Na系ベントナイトとNa改質品ベントナイトの違いは？",
+    "answer": "基本、Na系ベントナイトは耐熱性に優れるが、崩壊性が悪い。Na改質品は、耐熱性に乏しいが、崩壊性に優れる。\nその客先のライン工程や生産する材質、製品の大きさい等ににより判断するが、最近ではNa系ベントナイトとNa改質品を混合しての使用が多い。\nまた、材質が鋳鋼の場合、肌砂(湯にあたる部分)と裏砂(湯に当たらない部分)のツーサンドにての使用が多く、肌砂には耐熱性の高いNa系の使用、裏砂にはNa改質品の使用が多い。この場合の欠点として、両者が一緒にばらされるため、シリカプログラム試験でのAC算出のための検量線値が難しくなることが挙げられる。",
+    "date": "2026-07-21"
+  },
+  {
+    "id": "mrvc05mmofkon",
+    "category": "鋳物",
+    "question": "予備混練の効果は？",
+    "answer": "累加混練の効果が見込るため、ないよりあった方がよい。\n但し、砂温の上昇には注意が必要。砂温が上昇のまま本混練へ行くと、CB値を合わせるための水量が多くなり、抗圧力も低下する可能性がある。",
+    "date": "2026-07-22"
+  },
+  {
+    "id": "mrvcc2uv1rdse",
+    "category": "鋳物",
+    "question": "寝かせ(熟成)の効果は？",
+    "answer": "寝かせの効果の判断は難しい。予備混練後にサンドビンに入る工程が良くあるが、棚吊りが起こるケースが多々ある。棚吊りが起こると、砂の回転が速くなり、砂温が高い砂が本混練で行われるため、CB値を合わせるのが困難になる。最近ではMIE(自動CB測定器)やKT3の使用が多いため、CB合わせのための回数が多くなり、抗圧力の低下や水分過多の砂が排出されやすくなる。\n結果、混練機から造型機までのCBドロップが激しくなる＝砂が乾き易い＝不良(特に砂かみ)に繋がる可能性が高い。",
+    "date": "2026-07-22"
+  },
+  {
+    "id": "mrvcg33br28l5",
+    "category": "鋳物",
+    "question": "回収砂を安定させるには？",
+    "answer": "顧客先により、作る製品が異なる。中子が入る製品、入らない製品をランダムで生産するケースが多いため、回収サイロ(サンドビン)はなるべく多く持ち、振り分け投入の同時切り出しすることにより、砂のバラツキを無くす手段となる。",
+    "date": "2026-07-22"
+  },
+  {
+    "id": "mrvdfrwq6r3oc",
+    "category": "鋳物",
+    "question": "DST-Ⅱの信頼性は？",
+    "answer": "鋳物試験機もいろいろあり、試験機により値も異なるのが基本。\nDST-Ⅱは、水分値が下1桁しか出ないため、CB値に変化があったとしても、水分に変化ないという結果となってしまうため傾向が掴めない。\nその他の項目は、ある程度の信頼性はあるが、検量線がズレると全ての項目での信頼性は得られない可能性あり。",
+    "date": "2026-07-22"
+  },
+  {
+    "id": "ms3ut8qjs5fnp",
+    "category": "土木",
+    "question": "榛名と白馬のモンモリロナイト含有量を教えてください。",
+    "answer": "一般工業用ベントナイトのモンモリロナイト含有量につきましては、基本的に測定しておりません。\n簡易的な測定方法としまして、メチレンブルー吸着量試験というカチオン性の染料をモンモリロナイトの結晶表面に吸着させる試験から凡その純度を測定する方法がございますが、この方法ですと正確に純度を測定することができませんので、お客様からお問い合わせいただいた際は、一般工業用ベントナイトのモンモリロナイトの純度を出すことは難しい旨、回答させていただいております。\n\nこの方法ですと白馬、榛名共に約40%がモンモリロナイト含有率となりますが、あくまでも参考値として見ていただければと思います。",
+    "date": "2026-07-27"
   }
 ]
 </script>
@@ -344,11 +429,16 @@
     margin-top:12px;padding-top:10px;border-top:1px solid var(--border);}
   .qa-dt{font-size:11px;color:var(--text3);}
   /* 管理者UI — body.admin-mode クラスで一括制御 */
-  #adminBadge, #saveBtn, #importBtn { display: none; }
+  #adminBadge, #saveBtn, #importBtn, #vwPwBtn { display: none; }
   body.admin-mode #adminBadge,
   body.admin-mode #saveBtn,
-  body.admin-mode #importBtn { display: inline-block; }
+  body.admin-mode #importBtn,
+  body.admin-mode #vwPwBtn { display: inline-block; }
   body.admin-mode #fab { display: flex; }
+
+  /* 閲覧ゲート */
+  .vw-gate{position:fixed;inset:0;background:var(--bg);z-index:1000;
+    display:none;align-items:center;justify-content:center;padding:20px;}
   .qa-ac { display: none; }
   body.admin-mode .qa-ac { display: flex; gap: 6px; }
   .smbtn{border:1px solid var(--border);background:var(--surface2);border-radius:5px;
@@ -508,6 +598,22 @@
 </head>
 <body class="">
 
+<!-- VIEWER GATE -->
+<div class="vw-gate" id="viewerGate">
+  <div class="card" style="max-width:360px;width:100%;">
+    <div style="text-align:center;font-size:52px;margin-bottom:4px;">📋</div>
+    <h2 style="text-align:center;">ホージュン FAQ</h2>
+    <p style="text-align:center;">閲覧にはパスワードが必要です。</p>
+    <div class="pww" style="margin-top:16px;">
+      <input type="password" id="viewerPw" placeholder="パスワードを入力"
+        onkeydown="if(event.key==='Enter')doViewerLogin()">
+      <button class="pwe" onclick="toggleV('viewerPw',this)">👁️</button>
+    </div>
+    <div class="errmsg" id="viewerErr">パスワードが違います</div>
+    <button class="bok" style="width:100%;margin-top:16px;" onclick="doViewerLogin()">閲覧する</button>
+  </div>
+</div>
+
 <!-- HEADER -->
 <div class="hd">
   <div class="hd-top">
@@ -519,6 +625,7 @@
       <span class="admin-badge" id="adminBadge" style="">🔓 管理者</span>
       <button class="ibtn save-btn" id="saveBtn" onclick="saveAndExport()" style="animation: auto ease 0s 1 normal none running none;">💾 保存して出力</button>
       <button class="ibtn" id="importBtn" onclick="openImport()" style="">📥 Q&amp;A取込</button>
+      <button class="ibtn" id="vwPwBtn" onclick="openVwPwChange()">🔑 閲覧PW</button>
       <button class="ibtn" id="loginBtn" onclick="handleLoginBtn()">🔐 ログイン</button>
     </div>
   </div>
@@ -530,9 +637,9 @@
 
 <!-- TABS -->
 <div class="tw" style="top: 134px;"><div class="tabs" id="tabs"><button class="tab" onclick="setCat('全て')">
-      📋 全て<span class="tab-b">34</span></button><button class="tab active" onclick="setCat('土木')">
-      🏗️ 土木<span class="tab-b">25</span></button><button class="tab" onclick="setCat('鋳物')">
-      ⚙️ 鋳物<span class="tab-b">0</span></button><button class="tab" onclick="setCat('化学')">
+      📋 全て<span class="tab-b">45</span></button><button class="tab active" onclick="setCat('土木')">
+      🏗️ 土木<span class="tab-b">26</span></button><button class="tab" onclick="setCat('鋳物')">
+      ⚙️ 鋳物<span class="tab-b">10</span></button><button class="tab" onclick="setCat('化学')">
       🧪 化学<span class="tab-b">9</span></button><button class="tab" onclick="setCat('化粧品')">
       💄 化粧品<span class="tab-b">0</span></button><button class="tab" onclick="setCat('環境')">
       🌿 環境<span class="tab-b">0</span></button><button class="tab" onclick="setCat('猫砂')">
@@ -541,18 +648,36 @@
 
 <!-- MAIN -->
 <div class="main">
-  <div class="ri" id="ri">25 件</div>
-  <div class="ql" id="ql"><div class="qa" id="cmqhkfwv79ky19">
+  <div class="ri" id="ri">26 件</div>
+  <div class="ql" id="ql"><div class="qa" id="cms3ut8qjs5fnp">
+      <div class="qa-h" onclick="tog('ms3ut8qjs5fnp')">
+        <span class="qa-cb cat-土木">🏗️ 土木</span>
+        <span class="qa-q">Q. 榛名と白馬のモンモリロナイト含有量を教えてください。</span>
+        <span class="qa-ar">▶</span>
+      </div>
+      <div class="qa-body">
+        
+        <div class="qa-ans">一般工業用ベントナイトのモンモリロナイト含有量につきましては、基本的に測定しておりません。
+簡易的な測定方法としまして、メチレンブルー吸着量試験というカチオン性の染料をモンモリロナイトの結晶表面に吸着させる試験から凡その純度を測定する方法がございますが、この方法ですと正確に純度を測定することができませんので、お客様からお問い合わせいただいた際は、一般工業用ベントナイトのモンモリロナイトの純度を出すことは難しい旨、回答させていただいております。
+
+この方法ですと白馬、榛名共に約40%がモンモリロナイト含有率となりますが、あくまでも参考値として見ていただければと思います。</div>
+        
+        <div class="qa-meta">
+          <span class="qa-dt">2026-07-27</span>
+          <div class="qa-ac"><button class="smbtn" onclick="openEdit('ms3ut8qjs5fnp')">✏️ 編集</button><button class="smbtn del" onclick="doDel('ms3ut8qjs5fnp')">🗑️ 削除</button></div>
+        </div>
+      </div>
+    </div><div class="qa" id="cmqhkfwv79ky19">
       <div class="qa-h" onclick="tog('mqhkfwv79ky19')">
         <span class="qa-cb cat-土木">🏗️ 土木</span>
         <span class="qa-q">Q. (仮称)等々力一丁目共同住宅新築工事現場にて使用中のネオマッドがプラント撹拌中に強い凝集反応を示したのですが、原因として考えられることは何ですか？</span>
         <span class="qa-ar">▶</span>
       </div>
       <div class="qa-body">
-        <div class="qa-media"><div class="qa-vids"><video controls="" preload="none" data-fn="doboku_001" onerror="var d=document.createElement('div');d.className='vid-err';d.textContent='⚠️ 動画が見つかりません: '+this.dataset.fn;this.replaceWith(d)"><source src="media/doboku_001" type="video/mp4"><source src="media/doboku_001"></video></div></div>
+        <div class="qa-media"><div class="qa-vids"><a class="vid-link" href="media/doboku_001.mov" target="_blank" rel="noopener">▶ 動画を再生　<span class="vid-link-name">doboku_001.mov</span></a></div></div>
         <div class="qa-ans">現品回収後に室内試験にて検証した結果、撹拌不足が影響していることが判明いたしました。
 切り替える前にご使用されていたクニゲルGSにつきましてもネオマッドと同様に攪拌不足の場合、強い凝集反応を示す結果となっております。</div>
-        <div class="qa-media"><div class="qa-vids"><video controls="" preload="none" data-fn="doboku_002" onerror="var d=document.createElement('div');d.className='vid-err';d.textContent='⚠️ 動画が見つかりません: '+this.dataset.fn;this.replaceWith(d)"><source src="media/doboku_002" type="video/mp4"><source src="media/doboku_002"></video></div></div>
+        <div class="qa-media"><div class="qa-vids"><a class="vid-link" href="media/doboku_002.mp4" target="_blank" rel="noopener">▶ 動画を再生　<span class="vid-link-name">doboku_002.mp4</span></a></div></div>
         <div class="qa-meta">
           <span class="qa-dt">2026-06-17</span>
           <div class="qa-ac"><button class="smbtn" onclick="openEdit('mqhkfwv79ky19')">✏️ 編集</button><button class="smbtn del" onclick="doDel('mqhkfwv79ky19')">🗑️ 削除</button></div>
@@ -1220,6 +1345,25 @@ Caは層間イオンとして存在するものだけでなく、Calcite（CaCO3
   </div>
 </div>
 
+<!-- VIEWER PW CHANGE MODAL -->
+<div class="cov" id="vwPwCov">
+  <div class="card">
+    <h2>🔑 閲覧パスワード変更</h2>
+    <p>FAQ閲覧に必要なパスワードを変更します。<br>変更後は必ず「💾 保存して出力」を実行してください。</p>
+    <div class="fgsm"><label>新しい閲覧パスワード</label>
+      <div class="pww"><input type="text" id="vwPwNew" placeholder="新しいパスワード（4文字以上）"></div>
+    </div>
+    <div class="fgsm"><label>確認</label>
+      <div class="pww"><input type="password" id="vwPwNew2" placeholder="もう一度入力"></div>
+      <div class="ferr" id="vwPwErr"></div>
+    </div>
+    <div class="ma">
+      <button class="bno" onclick="closeVwPwChange()">キャンセル</button>
+      <button class="bok" onclick="doChangeVwPw()">変更する</button>
+    </div>
+  </div>
+</div>
+
 <!-- IMPORT MODAL -->
 <div class="iov" id="impOv" onclick="if(event.target===this)closeImport()">
   <div class="icard">
@@ -1242,6 +1386,55 @@ const DEFAULT_PW = 'hojun1234';
 
 const CATS  = ['全て','土木','鋳物','化学','化粧品','環境','猫砂','雑'];
 const EMOJI = {'全て':'📋','土木':'🏗️','鋳物':'⚙️','化学':'🧪','化粧品':'💄','環境':'🌿','猫砂':'🐱','雑':'📁'};
+
+// ── 閲覧パスワード（vw-data タグで管理） ──
+const DEFAULT_VW_PW = 'faq2024';
+function getVwPw() {
+  try {
+    var el = document.getElementById('vw-data');
+    return el ? JSON.parse(el.textContent) : btoa(DEFAULT_VW_PW);
+  } catch(e) { return btoa(DEFAULT_VW_PW); }
+}
+function checkVwAuth() {
+  try { return localStorage.getItem('hojun_vw') === getVwPw(); } catch(e) { return false; }
+}
+function storeVwPw(v) {
+  try {
+    document.getElementById('vw-data').textContent = JSON.stringify(btoa(v));
+  } catch(e) { console.error('storeVwPw failed:', e); }
+}
+function doViewerLogin() {
+  var pw = document.getElementById('viewerPw').value;
+  var err = document.getElementById('viewerErr');
+  if (btoa(pw) === getVwPw()) {
+    try { localStorage.setItem('hojun_vw', getVwPw()); } catch(e) {}
+    document.getElementById('viewerGate').style.display = 'none';
+    document.getElementById('viewerPw').value = '';
+    err.style.display = 'none';
+  } else {
+    err.style.display = 'block';
+    document.getElementById('viewerPw').value = '';
+    document.getElementById('viewerPw').focus();
+  }
+}
+function openVwPwChange() {
+  document.getElementById('vwPwNew').value = '';
+  document.getElementById('vwPwNew2').value = '';
+  document.getElementById('vwPwErr').style.display = 'none';
+  document.getElementById('vwPwCov').classList.add('show');
+}
+function closeVwPwChange() { document.getElementById('vwPwCov').classList.remove('show'); }
+function doChangeVwPw() {
+  var nw  = document.getElementById('vwPwNew').value;
+  var nw2 = document.getElementById('vwPwNew2').value;
+  var err = document.getElementById('vwPwErr');
+  if (nw.length < 4) { err.textContent='4文字以上にしてください'; err.style.display='block'; return; }
+  if (nw !== nw2)    { err.textContent='パスワードが一致しません'; err.style.display='block'; return; }
+  storeVwPw(nw);
+  try { localStorage.setItem('hojun_vw', getVwPw()); } catch(e) {}
+  closeVwPwChange();
+  alert('✅ 閲覧パスワードを変更しました。\n「💾 保存して出力」を押してファイルを更新してください。');
+}
 
 // ── パスワード（HTMLの pw-data タグで管理。保存して出力で全員に反映） ──
 function getPw() {
@@ -1268,7 +1461,7 @@ function setAdminMode(val) {
   isAdmin = val;
   document.body.classList.toggle('admin-mode', val);
   // 旧コードで焼き付いたインラインstyleを除去し、CSSに委ねる
-  ['adminBadge','saveBtn','importBtn','fab'].forEach(function(id) {
+  ['adminBadge','saveBtn','importBtn','fab','vwPwBtn'].forEach(function(id) {
     document.getElementById(id).style.display = '';
   });
   var lBtn = document.getElementById('loginBtn');
@@ -1631,6 +1824,18 @@ function doImport() {
 // ── INIT ── 必ずログアウト状態で起動（焼き付きインラインstyleも除去）
 setAdminMode(false);
 
+// 閲覧認証チェック — 未認証なら閲覧ゲートを表示
+(function() {
+  if (!checkVwAuth()) {
+    var gate = document.getElementById('viewerGate');
+    gate.style.display = 'flex';
+    setTimeout(function() {
+      var pw = document.getElementById('viewerPw');
+      if (pw) pw.focus();
+    }, 150);
+  }
+})();
+
 // タブをヘッダーの直下にstickyさせる
 (function() {
   var hd = document.querySelector('.hd');
@@ -1639,6 +1844,13 @@ setAdminMode(false);
   syncTop();
   window.addEventListener('resize', syncTop);
 })();
+
+// PWA Service Worker 登録
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js').catch(function() {});
+  });
+}
 </script>
 
 
